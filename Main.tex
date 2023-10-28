@@ -1,0 +1,376 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xtab}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{MC NUGU\\
+    {\footnotesize \textsuperscript{*}- AI speakers can be the "MC of the party" -}
+    }
+
+\author{\IEEEauthorblockN{1\textsuperscript{st} Kang Jungyu}
+\IEEEauthorblockA{\textit{Dept. of Information Systems } \\
+\textit{Hanyang Univ.}\\
+Seoul, Republic of Korea \\
+jgpk226@gmail.com}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Kim Jihoon}
+\IEEEauthorblockA{\textit{Dept. of Information Systems } \\
+\textit{Hanyang Univ.}\\
+Seoul, Republic of Korea \\
+jhkimlego@gmail.com}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Park Jongsu}
+\IEEEauthorblockA{\textit{Dept. of Information Systems } \\
+\textit{Hanyang Univ.}\\
+Seoul, Republic of Korea \\
+qwt629@gmail.com}
+}
+
+\maketitle
+
+\begin{abstract}
+The MC NUGU - AI speakers can be the "MC of the party” is Icebreaker for MT, meetings, and house parties. It can also act as a party assistant in place of a human.
+
+In addition, it provides a service that connects LG home appliances with the app and allows you to control them from the app. Key features include lightning services, the ability to adjust and control the brightness of colors, change house party mode, and get lighting recommendations through generative AI.
+\end{abstract}
+
+\begin{IEEEkeywords}
+MC, Manager, Lighting, Appliance, Game
+\end{IEEEkeywords}
+
+ \begin{xtabular}{|p{1cm}|p{1.7cm}|p{5cm}|}
+     \hline
+     Name & Roles & Task description and etc. \\ [0.5ex] 
+     \hline
+     Kang Jungyu & Development Manager, Software developer (Back-end) &  
+     A Development Manager is responsible for managing the overall project. He oversees the functions that are required, the UI/UX configuration, the flawless operation of the prototype, and whether the project proceeds as planned. In addition, he constantly monitors the team member’s progress and whether they are communicating effectively.\\
+     & &
+     Software developer (Back-end) is in charge of creating databases, web services, and APIs used by front-end developers. For this position, an understanding of the core database and its features is essential. Every logic as well as integrating with the front-end is developed by him. He uses two tracks of servers, which are the main server and the AI server. The main server interacts with the database, manages user authentication, and handles most server-side logic by Java Spring. The AI Server uses AI codes, open AI, and other libraries for games by Python Flask. He also writes HTTP request codes and WebSocket connection codes on Front-end using React-Native for this project.
+     
+     \\ 
+     \hline
+     Kim Jihoon & Product Designer, Software developer (AI) & 
+     A Product Designer must focus on the usability of a product or service and modify the design of a product to obtain better results. She is responsible for communicating smoothly with other team members and create collaboration.\\
+    & &
+     A software developer (AI) is responsible for any requirements of the project in terms of data and artificial intelligence. This role selects and refine data into adequate forms in order to make the artificial intelligence model. This role uses machine learning for implementing artificial intelligence to requirements of the software, must run and test model and make a statistical analysis.\\
+     \hline
+     Park Jongsu & Software developer (Front-end), UI/UX Designer & 
+     Software Developer(Front-end) is responsible for the creation and implementation of the user interface of web applications. They use technologies like HTML, CSS, and JavaScript to build visually appealing and responsive websites. Their duties involve writing and optimizing code, ensuring compatibility across various devices and browsers, and collaborating with back-end developers. They play a crucial role in optimizing website performance, conducting testing and debugging, and staying updated with the latest front-end development trends and practices.\\
+     & &
+    UI/UX Designers focus on the visual and interactive aspects of software applications, designing the user interface and ensuring aesthetics and functionality. They conduct user research to create wireframes and prototypes, collaborate with development teams for accurate implementation, and conduct usability testing. Their role is to create a user-centric, visually appealing, and accessible experience.\\ [0.1ex] 
+     \hline
+\end{xtabular}
+
+\section{Introduction}
+
+    \subsection{Motivation and Term Definition}
+    \subsection{Problem Statements}
+    \subsection{Solution}
+    \subsection{Research on Any Relative Software}
+    
+    \section{Requirement Analysis}
+    
+    \subsection{Logging In}
+    Logging in is required for users to have access to functions of the application. Without a login, it is impossible to use any of the functions of the app. If the application is not logged in, users can create their own account or login using an account they have created before. 
+    
+    \subsection{Creating Account}
+    Users can sign up by setting a user id and password of their preference. Signing in requires input  of the given information in the sign up process such as userid, password and name.
+    
+    \subsection{Space Management}
+    “Space” refers to any type of place where parties can be held and added to the software. Space management mainly focuses on space creation and space connection. Space creation means making a new space so that it can be used to link with electronics and made available for others to join. Space connection means gaining access to spaces via the code provided by owners. Each space has a unique code which can be shared with others and is required to access the functions provided. The code can be generated by creating a space in the application and request code generation on the settings tab. Also, Space management is separated into 2 types of classes;owners and users.\\ \\
+    Space owner: Can generate random authentication codes for individual spaces. Also, it is possible to refresh the code which terminates the validity of the code for previous users, forcing them to lose access of the space.\\ \\
+    Space user: A space user can gain access to spaces with the code provided by the owner. By having the code, the user also has access to the lighting and appliances pre-registered by the Space owner.
+
+    \subsection{Status Dashboard}
+    Users can view the status of the space upon logging into the software. It is the first page that a user will encounter upon connecting to a space. The dashboard acts as the main page of the application. It includes the name of the space, a simple announcement bar, data on space temperature and air quality. The name of the space is provided by owners, space temperature and air quality information comes from data on the related appliance. Also, it contains a music player where all users with access can add desired songs to a shared playlist. It is connected to whatever music output device that is present at the space, which means controlling the music player will have an effect on the sound of the space for everyone. 
+
+    \subsection{Lighting Control}
+    Provides controlling any hardware with lighting function. Users can change the brightness, color and effects of the lights using the software. It is not just for lighting devices but also for any kind of appliance that has a lighting function such as a NUGU candle or LG Mood-Up refrigerator Also, users can input any type of situation desired in natural language and the lighting will automatically change accordingly using AI. The input can be made by a input box using a keyboard or by requesting it in speech to an AI speaker. To help users that cannot make a decision for which lighting to use, there will be some preset requests available to execute.
+
+    \subsection{Appliance Control}
+    Provides control of any appliances that are synced with the software, such as changing the space temperature using an air conditioner, checking remaining beer amount on Homebrew,  setting the power of a air purifier. It will be functioning as a shared setting, which means any user can adjust the appliance. This will help make the environment of the party adequete for party instantly. Also, space owners can lock certain appliances, which results in prohibiting users from access to the locked appliance. Locking option can be activated by toggling a lock icon inside the appliance settings
+
+    \subsection{Party Games}
+    Users can play games from a list of games provided. There are 2 types of users in the process of the game, operator and participant. \\
+    
+    Game operator: Page consist of the answer of the game, a list to check the answering order, buttons for moving on to the next game and quitting the game for everyone\\
+    
+    Game participant: Page consist of the game question and a push button for confirming the answering order, which is in first-come-first-served basis.\\
+    
+    Currently there will be 3 games that will be serviced, however it is possible to include various games since the format is shared. The list of serviced games are as following.\\
+
+    \begin{itemize}
+        \item Image game: An AI model merges the face of two celebrities, the participants are asked to guess the celebrities based on the merged image.
+        \item Landmark guessing game: The game receives the coordinates of famous landmarks around the world from OpenAI API. The data is sent to Google map API for a street view photo of the coordinate. Participants are required to guess the landmark from the street view photo.
+        \item Gather up: Game operator first inputs the number of participants. NUGU speaker plays any music for about 10 seconds, stop the music and tell how many people to gather up. Then, participants gather up according to the given number and participants who could not gather up are eliminated. The process will be entirely conducted by the NUGU speaker, and the given number will be calculated by a pre-set algorithm
+    \end{itemize}
+    
+\section{Development environment}
+    \subsection{Choice of Software}
+    
+    \begin{table}[htbp]
+        \caption{Development Language and Environment}
+        \centering
+        \begin{xtabular}{| p{1.2cm}|p{6.8cm} |} 
+             \hline
+             Tools and Language & Description and Reason for Selection \\ [0.5ex]
+             \hline
+             Spring & Spring is a comprehensive and widely adopted framework for building Java-based enterprise applications. It provides a range of tools and libraries that simplify the development of large-scale, robust, and highly maintainable applications. The Spring framework addresses various aspects of application development, aspect-oriented programming, and transaction management. Spring facilitates the development of enterprise-class applications and microservices by promoting best practices and modularity. It's an essential tool for Java developers looking to streamline application development and improve code quality.
+
+            The reasons for choosing Spring framework over others is first, has a characteristic that the developer does not depend on particular libraries or container stacks. Also, in the process of database synchronization(when working on a scale of status change), it is fairly simple to annotate transactions. Most of all, it is very popular that has the biggest community and a very stable framework. \\
+             \hline
+             React
+             
+             Native & React Native is an open-source UI software framework created by Meta Platform, Inc. It is used to develop applications for Android, Android TV, iOS, macOS, tvOS, Web, Windows and UWP by enabling developers to use the React framework along with native platform capabilities. It is also being used to develop virtual reality applications at Oculus. One of the biggest feature of React Native is being able to create native UI for Android and iOS using JavaScript, and create high-quality UI faster than using HTML. 
+             
+            React Native communicates with Native Thread over native bridges, optimizing performance unlike web apps. Using a method of communicating with the native without using this web is called a Hybrid App, and there are Xamarin, Native Script, and flutter.
+            
+            In this project, we chose React Native for developing mobile applications in the frontend development environment because it offers a wealth of resources, and it supports native development environments for both Android and iOS, making it a superior choice over other mobile app programming frameworks. 
+ \\  
+             \hline
+             Python & Python is a high-level, versatile, and dynamically-typed programming language known for its simplicity and readability. It has a vast standard library and a thriving ecosystem of third-party packages and frameworks, which makes it suitable for a wide range of applications, including web development, data analysis, machine learning. Python's syntax is clear and expressive, making it an ideal language for both beginners and experienced developers. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming. Python has gained significant popularity in recent years for data science and machine learning thanks to libraries like NumPy, pandas, scikit-learn, and TensorFlow. It is also used in web development with frameworks like Flask. Python's simplicity, versatility, and large community make it one of the most popular programming languages in the world.\\\\
+             \hline
+             PostgreSQL &  PostgreSQL, often referred to as "Postgres," is a powerful open-source relational database management system (RDBMS). It's known for its advanced features and extensibility, making it a popular choice for both small and large-scale applications. PostgreSQL offers robust support for structured data, ACID compliance, and features like indexing, full-text search, and geospatial capabilities. It is highly extensible and allows developers to create custom functions and data types. With a strong focus on data integrity and security, PostgreSQL is widely used in a variety of industries, including web applications, data warehousing, and geographic information systems (GIS). \\ [1ex]
+             \hline
+        \end{xtabular}
+    \end{table}
+    
+    \begin{table}[htbp]
+        \caption{Development Language and Environment}
+        \centering
+        \begin{xtabular}{|p{2cm}|p{4cm}|}
+        \hline
+        Name & Develop Environment\\
+        \hline
+        Kang Jungyu & 
+        macOS Sonoma 14.0 \hfill \break Spring, Flask\\
+        \hline
+        Kim Jihoon & 
+        macOS Sonoma 14.0 \hfill \break Pytorch, TeXLive\\
+        \hline
+        Park Jongsu & 
+        macOS Sonoma 14.0 \hfill \break React-Native, Figma\\
+        \hline
+        \end{xtabular}
+    \end{table}
+
+    \newpage
+    \subsection{Software in Use}
+    
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{Images/logo/github.png}}
+        \label{fig}
+        \caption{Logo of GitHub}
+        \end{figure}
+        \subsubsection{GitHub}
+        GitHub is an indispensable platform in the world of software development. It serves as a web-based hub that plays a pivotal role in version control and team collaboration, allowing developers to efficiently manage their source code. It is particularly known for its Git-based repository hosting, which enables developers to store, manage, and monitor changes in their codebase. GitHub provides a range of features designed to streamline the development process, including code repositories for version control, pull requests for peer review, and issue tracking for tracking and managing project tasks and bugs. Developers can work on different branches of a project simultaneously and merge their changes seamlessly. This fosters collaboration among team members and ensures the integrity of the codebase. GitHub has become an essential tool for distributed software development, enabling remote teams to work together seamlessly.\\
+        
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width = 4.5cm]{Images/logo/intellij.png}}
+        \label{fig}
+        \caption{Logo of IntelliJ IDEA}
+        \end{figure}
+        \subsubsection{IntelliJ IDEA}
+        IntelliJ IDEA is a powerful integrated development environment (IDE) that is specifically designed for Java developers. It offers a plethora of tools and features to streamline Java software development. The IDE provides intelligent code completion, allowing developers to write code faster and with fewer errors. It also offers extensive code analysis, which can detect potential issues and suggest improvements in real-time. The IDE supports popular Java frameworks, libraries, and build tools, making it a valuable tool for Java developers. Its user-friendly interface and extensive plugin support further enhance the development experience.\\
+    
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{Images/logo/vsc.png}}
+        \label{fig}
+        \caption{Logo of Visual Studio Code}
+        \end{figure}
+        \subsubsection{Visual Studio Code}
+        Visual Studio Code, commonly referred to as VS Code, is a highly versatile and extensible code editor developed by Microsoft. It has gained immense popularity in the software development community, not only for its support of multiple programming languages but also for its role in mobile app development, including React Native. VS Code offers syntax highlighting, code navigation, and debugging tools that are indispensable for React Native development. Developers can write and debug code efficiently and take advantage of a vast library of extensions to tailor the editor to their specific needs. It is a lightweight but powerful tool for web and mobile app development, offering a seamless and customizable development experience. It was chosen and being used to compile React-Native codes for our project.\\
+    
+    
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=4.5cm]{Images/logo/xcode.png}}
+        \label{fig}
+        \caption{Logo of Xcode}
+        \end{figure}
+        \subsubsection{Xcode}
+         Xcode is Apple's official integrated development environment (IDE) specifically designed for macOS and iOS app development. It serves as a comprehensive toolset for developing applications for Apple platforms, including iOS, macOS, watchOS, and tvOS. Xcode includes a code editor with features like code completion, code analysis, and integrated debugging, making it an indispensable tool for writing code for Apple's ecosystem. It also provides a graphical interface builder that simplifies the design of user interfaces for iOS apps. Furthermore, Xcode streamlines the app development process by offering tools for testing, profiling, and app distribution through the App Store. It is a complete package for building, testing, and deploying high-quality applications on Apple devices.\\
+    
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=7cm]{Images/logo/pycharm.png}}
+        \label{fig}
+        \caption{Logo of PyCharm}
+        \end{figure}
+        \subsubsection{PyCharm}
+        PyCharm, also developed by JetBrains, is an indispensable integrated development environment (IDE) for Python developers. It offers a set of features designed to streamline Python software development. PyCharm's code editor includes intelligent code completion, which suggests code snippets and identifies potential errors as you type. This feature significantly improves code quality and development speed. The IDE also supports various Python frameworks and libraries, making it easier to work with popular technologies like Django and Flask. It also simplifies virtual environment management, which is crucial for Python project isolation and package management.\\
+        
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=4.5cm]{Images/logo/jupyter.png}}
+        \label{fig}
+        \caption{Logo of Jupyter Notebook}
+        \end{figure}
+        \subsubsection{Jupyter Notebook}
+        Jupyter Notebook is an open-source web application that allows users to create and share documents that contain live code, equations, visualizations, and narrative text. It's widely used for data analysis, scientific computing, and machine learning. Jupyter Notebooks support various programming languages, including Python.. These notebooks are composed of cells that can contain code, text, or visual outputs, making it a valuable tool for creating reproducible research and data-driven documents. It provides an interactive and user-friendly environment for data exploration, analysis, and sharing. Jupyter Notebook is a preferred among data scientists, researchers, and educators for its flexibility and interactivity.\\
+
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{Images/logo/expo.png}}
+        \label{fig}
+        \caption{Logo of Expo}
+        \end{figure}
+        \subsubsection{Expo}
+        Expo is a set of tools and services that simplifies the development of React Native applications. It provides a variety of pre-built components and libraries, making it easier for developers to create mobile apps without the need for extensive native code development. Expo also offers a development client that allows developers to preview their applications on physical devices without the need for complex setup. It's a valuable tool for rapidly prototyping and developing mobile applications and can be especially useful for developers looking for a simplified and accelerated development process.\\
+
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=6cm]{Images/logo/aws.png}}
+        \label{fig}
+        \caption{Logo of AWS EC2}
+        \end{figure}
+        \subsubsection{AWS EC2}
+        AWS EC2, part of Amazon Web Services, is a scalable and flexible cloud computing platform that provides virtual servers known as instances. These instances can be customized to run various operating systems and applications, making it a cornerstone for cloud-based software development. Developers can launch, manage, and scale virtual machines based on their needs. AWS EC2 offers various instance types optimized for different workloads, including compute, memory, and storage-optimized instances, enabling developers to choose the right infrastructure for their applications. It plays a critical role in building and deploying web applications, backend services, and other software solutions in the cloud.\\
+        \newpage
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=4.5cm]{Images/logo/forge.png}}
+        \label{fig}
+        \caption{Logo of Miniforge}
+        \end{figure}
+        \subsubsection{Miniforge}
+        Miniforge is a distribution of the popular Conda package manager, optimized for minimalism and efficiency. Conda is used for managing packages and environments in data science and scientific computing. Miniforge is designed for users who want to create lightweight, customizable environments for specific tasks. It allows you to create isolated and reproducible environments for different Python projects, making it easier to manage dependencies and packages. Miniforge is especially valuable for data scientists and researchers who need to create custom Python environments for their work and prefer a minimalistic approach to package management. It was used in our project to create virtual environments for machine learning codes.\\
+
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5.5cm]{Images/logo/datagrip.png}}
+        \label{fig}
+        \caption{Logo of DataGrip}
+        \end{figure}
+        \subsubsection{DataGrip}
+        DataGrip, developed by JetBrains, is a specialized database management tool essential in software development. It supports multiple database systems, making it an all-in-one solution for related tasks. DataGrip offers a wide range of features, including SQL code development, schema visualization, and data exploration, simplifying database management through a unified interface for various engines. It enables developers to write and execute SQL queries, analyze data structures, and optimize performance. Intelligent code completion, real-time analysis, and database navigation features expedite development and management.\\
+
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5.5cm]{Images/logo/postman.png}}
+        \label{fig}
+        \caption{Logo of Postman}
+        \end{figure}
+        \subsubsection{Postman}
+        Postman is a versatile tool for simplifying API testing and working in software development. It serves as an API development and testing platform, enabling developers to create, send, and monitor HTTP requests. Acting as an API client, Postman allows developers to interact with API endpoints, test functionality, and ensure correct operation. It supports automation by enabling the creation of request collections and automated testing. Postman offers a user-friendly interface for request building and organization, facilitating collaboration between developers and testers.\\
+
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5.5cm]{Images/logo/colab.png}}
+        \label{fig}
+        \caption{Logo of Google Colab}
+        \end{figure}
+        \subsubsection{Google Colab}
+        Google Colab is a cloud-based platform for machine learning and data analysis that provides free access to a virtual machine with GPUs. It runs in a web browser and offers a Jupyter Notebook interface, making it a convenient tool for writing and executing code for data science and machine learning projects. Google Colab allows users to run Python code, perform data analysis, and train machine learning models using GPU acceleration, which can significantly speed up computations. It's a powerful resource for data scientists and machine learning engineers who need a cost-effective way to perform compute-intensive tasks without investing in local hardware.\\
+
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=4.5cm]{Images/logo/nugu.png}}
+        \label{fig}
+        \caption{Logo of Nugu Developers}
+        \end{figure}
+        \subsubsection{NUGU Playbuilder}
+        NUGU Playbuilder is a development platform provided by NUGU, an AI assistant developed by SK Telecom. It is specifically designed for creating voice-activated and conversational AI applications and services. NUGU Playbuilder simplifies the process of building voice interfaces and chatbots, allowing developers to design and implement natural language interactions. This platform provides tools for creating voice scripts, defining dialogue flows, and integrating with various data sources and services, making it a valuable asset for developers looking to create AI-powered applications and services.\\
+
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{Images/logo/figma.png}}
+        \label{fig}
+        \caption{Logo of Figma}
+        \end{figure}
+        \subsubsection{Figma}
+        Figma is a popular web-based design and prototyping tool known for its collaborative and user-friendly features. It empowers designers to create user interfaces, prototypes, and design components with real-time collaboration, ideal for cross-functional teams. It simplifies sharing design assets with developers, providing a platform for design handoff. Developers can inspect design specs, export assets, and collaborate with designers in real-time. Figma's flexibility and cloud-based approach facilitate seamless communication between designers and developers throughout a project's design and development phases.\\
+
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{Images/logo/notion.png}}
+        \label{fig}
+        \caption{Logo of Notion}
+        \end{figure}
+        \subsubsection{Notion}
+        Notion is a versatile workspace that caters to the diverse needs of software development teams. It combines note-taking, task management, knowledge sharing, and collaborative documentation. Notion offers a flexible and customizable platform for organizing information, managing projects, and sharing knowledge. Teams can structure their work using pages, databases, and boards, with support for various data types like text, tables, files, and multimedia content. Notion excels in project management, enabling task lists, reminders, and collaboration on project boards. Notion's seamless collaboration features concurrent work on the same page, making it a valuable tool for collaboration.\\
+
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5.5cm]{Images/logo/slack.png}}
+        \label{fig}
+        \caption{Logo of Slack}
+        \end{figure}
+        \subsubsection{Slack}
+        Slack is a highly popular communication platform designed to enhance collaboration and communication within software development teams. It offers real-time messaging, file sharing, and integration with various software tools. Slack simplifies team communication by providing chat channels for different topics or teams, direct messaging, and file sharing capabilities. Developers can create channels dedicated to specific projects or discussions, making it easy to organize and find conversations. One of Slack's key strengths is its extensive library of integrations with third-party tools. It allows teams to connect other software tools, like GitHub and Google Drive, directly to their Slack workspace, streamlining workflows and enhancing productivity. Slack also supports notification customization, ensuring that team members receive updates and alerts relevant to their roles and responsibilities. It plays a crucial role in fostering efficient communication, project discussion, and workflow optimization within software development teams.\\
+
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{Images/logo/overleaf.png}}
+        \label{fig}
+        \caption{Logo of Overleaf}
+        \end{figure}
+        \subsubsection{Overleaf}
+        Overleaf is a web-based platform designed for collaborative scientific writing and document preparation, especially for LaTeX documents. It simplifies the process of creating complex documents with mathematical equations, tables, and references. Overleaf offers real-time collaboration features, enabling multiple authors to work on the same document simultaneously. It provides a rich text editor with LaTeX support and a compilation engine, allowing authors to see real-time previews of their documents. It's a valuable tool for researchers and academics who need to create and collaborate on scholarly documents and reports. Also, it has a feature where it can be synced with GitHub and committed to a repository.\\
+
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=4.5cm]{Images/logo/texlive.png}}
+        \label{fig}
+        \caption{Logo of TeXLive}
+        \end{figure}
+        \subsubsection{TeXLive}
+        TeX Live is a comprehensive distribution of the TeX typesetting system, which is widely used for document preparation in fields such as scientific and technical publishing, academia, and literature. It is cross-platform, supporting Windows, macOS, and Linux, and provides a vast collection of packages and fonts to address a wide range of document types and formats. TeX Live is renowned for its high-quality typesetting and is often used to create documents with complex layouts, mathematical notation, and bibliographies. It is the go-to choice for authors and researchers who require precise control over the visual appearance of their documents.\\
+
+\section{Specification}
+
+\subsection{Loading Page}
+\subsection{Login Page}
+\subsection{Register Page}
+\subsection{Space List Page}
+\subsection{Space Registration Pop-Up}
+\subsection{Space Entrance Pop-Up}
+\subsection{Dashboard (Main Page)}
+\subsection{Lighting Dashboard}
+\subsection{Lighting Device Registration Pop-Up}
+\subsection{Lighting Control Page}
+\subsection{Game Dashboard}
+\subsection{Game Host Page}
+\subsection{Game Participant Page}
+\subsection{AI Guessing Game}
+\subsection{Geography Guessing Game}
+\subsection{'Gather Up' Game}
+\subsection{App Setting Page}
+
+\section{ARCHITECTURE DESIGN}
+
+\section{use cases}
+
+\section{conclusion \& discussion}
+
+\section*{Acknowledgment}
+
+\section*{References}
+
+Please number citations consecutively within brackets \cite{b1}. The 
+sentence punctuation follows the bracket \cite{b2}. Refer simply to the reference 
+number, as in \cite{b3}---do not use ``Ref. \cite{b3}'' or ``reference \cite{b3}'' except at 
+the beginning of a sentence: ``Reference \cite{b3} was the first $\ldots$''
+
+Number footnotes separately in superscripts. Place the actual footnote at 
+the bottom of the column in which it was cited. Do not put footnotes in the 
+abstract or reference list. Use letters for table footnotes.
+
+Unless there are six authors or more give all authors' names; do not use 
+``et al.''. Papers that have not been published, even if they have been 
+submitted for publication, should be cited as ``unpublished'' \cite{b4}. Papers 
+that have been accepted for publication should be cited as ``in press'' \cite{b5}. 
+Capitalize only the first word in a paper title, except for proper nouns and 
+element symbols.
+
+For papers published in translation journals, please give the English 
+citation first, followed by the original foreign-language citation \cite{b6}.
+
+\begin{thebibliography}{00}
+\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
+\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
+\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
+\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
+\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
+\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
+\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
+\end{thebibliography}
+\vspace{12pt}
+\color{red}
+IEEE conference templates contain guidance text for composing and formatting conference papers. Please ensure that all template text is removed from your conference paper prior to submission to the conference. Failure to remove the template text from your paper may result in your paper not being published.
+
+\end{document}
