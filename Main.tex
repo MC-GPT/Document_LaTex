@@ -345,18 +345,43 @@ MC, Manager, Lighting, Appliance, Game
         The Dashboard page is the main page that is first shown to users when entering a space. The main function of the dashboard page is showing an overview of the ongoing party. To help this objective, users can control the music playing from an audio device connected to the application, if there is any. Also there is a shared playlist where party participants can add desired songs to the list. In addition, there are information on the status of the space such as room temperature and air quality. These data can be sourced from the appliances that are connected to the space. Finally at the top there is the name of the space, exit space button, space code and a brief announcement bar. Name and code for the space is based on the data from the database and exiting button leads users back to the space list page. For the announcement bar, any user can post up to 25 characters and all users in the space can see the announcement.\\
         It's a screen composed of tabs, and from the user's perspective, it's not ideal to send requests every time you switch tabs, as it can cause delays. Therefore, as soon as you enter this screen, all the data for the space, including lighting and appliance lists, as well as the game list, is fetched all at once. This data is stored in a context for later use.\\        
         Announcements are displayed as text animations that move from the left side of the screen to the right side, taking 13 seconds. There's a button to return to the room selection screen, allowing users to navigate back. On the screen, the album cover of the music currently playing on the AI speaker is displayed, along with music playback options and playlists.
-    \subsection{Lighting Dashboard}
-    \subsection{Lighting Device Registration Pop-Up}
+    \subsection{Lighting \& Appliance Dashboard}
+        The appliance tab is the second tab of the application, which has functions that controls the appliances that are connected by the owner. The appliances are categorized into two groups: those with lighting and those without lighting. This page can give an overview of all the lighting and non-lighting appliances of the space. The dashboard consists of 2 identical pages for each type of appliance.\\
+        In the Lighting tab, only appliances with the "light" variable set to true in the appliance list data are displayed.  Users can enter their desired ambiance in an input field, and based on the current number of people in the space and the ambiance input, they receive lighting RGB values and effects recommendations from a generative AI. These recommendations are then transmitted to all the lights using Matter for configuration.\\
+        In the appliance tab, appliances without lighting features are able to be controlled. The specific functions vary on what type of appliances are added to the tab. It will be specified on later specifications but one example could be a temperature adjustment for an air conditioner.\\
+        All appliance buttons are displayed on the screen in two columns and support simple on/off functionality. Tapping each appliance button takes the user to a detailed control screen for each individual appliance. By using the tabs at the top of the screen, users can switch to a screen for controlling appliances without lighting. A "Add Lighting" or add "Add Appliance" button allows users to add new appliances. Users can enter the desired lighting in an input field and, by pressing the keyboard's completion button, can obtain suitable lighting effects through OpenAI API and the server.
+
+    \subsection{Lighting Device \& Appliance Registration Pop-Up}
+        In order to control the appliances from the app, it needs to be registered initially. The registration pop-up will receive information about appliances from the owner ultimately sending the data to the server. Information needed for registration are the serial numbers and name of appliance. In an input bar on the pop-up serial numbers and names are entered. The server automatically categorizes the appliance based on the serial number, checking if it has lighting or determining its type.\\
+        Tapping the serial number input field brings up the numerical keyboard, while tapping the name input field displays the Korean keyboard. The "Back" button allows users to return to the lighting screen, and after entering the information correctly, clicking the "Confirm" button results in the creation of a new lighting appliance. If the information is not entered correctly, the lighting appliance is not created, and a "Lighting(Appliance) Creation Failure" alert message is displayed.
+
     \subsection{Lighting Control Page}
+        Using a standardized format with Matter, the frontend sends requests to the appliance in a structured format based on the input it receives.\\
+        This screen allows you to control detailed lighting effects for appliances with lighting. At the top of the screen, the icon and name of the selected lighting appliance are displayed. You can control not only the on/off function of the lighting appliance but also check and modify features such as color, brightness, and usage.
+
+    \subsection{Appliance Control Page}
+        For all appliances, you have the on/off function. If it's an air conditioner, you can control temperature, fan speed, energy-saving mode, and reservation functions. If it's an air purifier, you can control fan speed, view particulate matter (PM) levels, and fine particulate matter (PM2.5) levels. If it's a steamer, you can select courses and view the timer. For robot vacuum cleaners, you can choose cleaning modes, select strong, medium, or weak power, and enable quiet mode. Each appliance has its specific and detailed control features.
     \subsection{Game Dashboard}
+        The game dashboard is the gateway to playing any of the game provided by the application. The main function is to show the list of games available and by pressing on a component of a list, it will activate the game. The details of the games such as name, the logic of the game are all coming from the server, which means that any kind of game can be added anytime on the back-end.\\
+        Upon entering the main tab, the data context received is used to display the list of games on the screen. Clicking on a game in the list creates a game room (Game\_Room DB), with the first person to click becoming the game's host. Subsequently, they are connected to the host's screen. (Only one game room can be created within a space.) Clicking the "Join" button allows a user to join a game room currently in progress in the space. Subsequently, they are connected to the participant's screen. The game list received from the server is displayed in a single column on the screen.
+
     \subsection{Game Host Page}
+        The game host page is a page for the first person to press a game on the game list. By being the first person pressing, it automatically makes them the host of the game. The host’s page consists of all information needed to run the game such as game question, game answer, go to next quiz, end game and a serial list of users based on the speed of pressing the answering button. The host can give user chances to answer according to the list of users and verify if the player has got the answer right. If the answer is correct or nobody got the answer or any situation that regards to move on, the host can press the next game button.\\
+        Upon entering the screen, a WebSocket connection is established, and a request with messageType = ENTER is sent. When the "Next Question" button is pressed, the Flask server fetches the question for the selected game, sends it over WebSocket to display it for all participants, and sends a request with messageType = NEXT. When the "Reveal Answer" button is pressed, the answer to the received question is sent over WebSocket to display it for all participants, and a request with messageType = ANSWER is sent. At the bottom of the screen, the nickname of the participant at the top of the first-come, first-served list is displayed. Clicking the "Next" button removes the next person from the list.\\
+        The name of the selected game is displayed in the top left corner of the screen, while the "End Game" and "Next Question" buttons are positioned in the top right corner. The game screen may vary depending on the type of game, with images displayed for games that require them and a default image for games that do not. At the bottom of the screen, a list of participants in the game, organized by arrival order, is displayed.
+
     \subsection{Game Participant Page}
-    \begin{comment}
-        \subsection{AI Guessing Game}
-        \subsection{Geography Guessing Game}
-        \subsection{'Gather Up' Game}
-    \end{comment}
+        Game participant page is for users that are actually playing the game. The same page is displayed to all users. The main functions provided are to see what the question or quiz is, and a button that gives you the chance to answer these questions. \\
+        The screen for participants is similar to the game host page but lacks the "End Game" and "Next Question" buttons. When participants press a button, they are added to the list in the order in which they respond. \\
+    	Upon entering the screen, a WebSocket connection is established, and a message with messageType = ENTER is sent. When the game host displays a question, all participants automatically receive a request and see the question. Pressing the "Answer" button adds the participant to the list in the Game\_Room DB in a first-come, first-served manner.
+
+    %\subsection{AI Guessing Game}
+    %\subsection{Geography Guessing Game}
+    %\subsection{'Gather Up' Game}
     \subsection{App Setting Page}
+        App setting page is a page where any kind of settings regarding the app can be modified, such as logging out. The main difference and function of the application’s setting is that it has buttons regarding the refreshing of the space code.\\
+        When you press the "Code Refresh" button, the room's access code is randomly changed, and at the same time, all guests who were invited to the room are removed.\\
+        Pressing the "Code Refresh" button causes all user's room access permissions to expire, and they are redirected to the room selection screen.
 
 \section{ARCHITECTURE DESIGN}
 
@@ -366,37 +391,7 @@ MC, Manager, Lighting, Appliance, Game
 
 \section*{Acknowledgment}
 
-\section*{References}
 
-Please number citations consecutively within brackets \cite{b1}. The 
-sentence punctuation follows the bracket \cite{b2}. Refer simply to the reference 
-number, as in \cite{b3}---do not use ``Ref. \cite{b3}'' or ``reference \cite{b3}'' except at 
-the beginning of a sentence: ``Reference \cite{b3} was the first $\ldots$''
-
-Number footnotes separately in superscripts. Place the actual footnote at 
-the bottom of the column in which it was cited. Do not put footnotes in the 
-abstract or reference list. Use letters for table footnotes.
-
-Unless there are six authors or more give all authors' names; do not use 
-``et al.''. Papers that have not been published, even if they have been 
-submitted for publication, should be cited as ``unpublished'' \cite{b4}. Papers 
-that have been accepted for publication should be cited as ``in press'' \cite{b5}. 
-Capitalize only the first word in a paper title, except for proper nouns and 
-element symbols.
-
-For papers published in translation journals, please give the English 
-citation first, followed by the original foreign-language citation \cite{b6}.
-
-\begin{thebibliography}{00}
-\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
-\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
-\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
-\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
-\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
-\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
-\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
-\end{thebibliography}
-\vspace{12pt}
 \color{red}
 IEEE conference templates contain guidance text for composing and formatting conference papers. Please ensure that all template text is removed from your conference paper prior to submission to the conference. Failure to remove the template text from your paper may result in your paper not being published.
 
