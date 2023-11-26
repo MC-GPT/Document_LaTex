@@ -443,18 +443,35 @@ MC, Manager, Lighting, Appliance, Game
         The screen for participants is similar to the game host page but lacks the "End Game" and "Next Question" buttons. When participants press a button, they are added to the list in the order in which they respond. \\
     	Upon entering the screen, a WebSocket connection is established, and a message with messageType = ENTER is sent. When the game host displays a question, all participants automatically receive a request and see the question. Pressing the "Answer" button adds the participant to the list in the Game\_Room DB in a first-come, first-served manner.
 
-    %\subsection{AI Guessing Game}
-    %\subsection{Geography Guessing Game}
-    %\subsection{'Gather Up' Game}
+    \subsection{AI Guessing Game}
+    \subsection{Geography Guessing Game}
+    \subsection{'Gather Up' Game}
     \subsection{App Setting Page}
         App setting page is a page where any kind of settings regarding the app can be modified, such as logging out. The main difference and function of the application’s setting is that it has buttons regarding the refreshing of the space code.\\
         When you press the "Code Refresh" button, the room's access code is randomly changed, and at the same time, all guests who were invited to the room are removed.\\
         Pressing the "Code Refresh" button causes all user's room access permissions to expire, and they are redirected to the room selection screen.
 
-\section{ARCHITECTURE DESIGN}
-
+\section{Architectue Design}
+    \subsection{Overall Architecture}
+    \subsection{Directory Organization}
+    \subsection{Module 1: Front-End}
+    \subsection{Module 2: Back-End}
+    \subsection{Module 3: Database}
+    \subsection{Module 4: AI}
+    
 \section{use cases}
-
+    \subsection{Use Case 1: Loading Page}
+    \subsection{Use Case 2: Signing Up}
+    \subsection{Use Case 3: Logging In}
+    \subsection{Use Case 4: Space Adding \& deleting}
+    \subsection{Use Case 5: Space Entering}
+    \subsection{Use Case 6: Main Page - Music \& Exit}
+    \subsection{Use Case 7: Appliance Addition \& Delete}
+    \subsection{Use Case 8: Appliance Control}
+    \subsection{Use Case 9: GPT Lighting Control}
+    \subsection{Use Case 10: Game Selection}
+    \subsection{Use Case 11: Game Play}
+    \subsection{Use Case 12: Code Refresh}
 \section{conclusion \& discussion}
 
 \section*{Acknowledgment}
