@@ -444,8 +444,18 @@ MC, Manager, Lighting, Appliance, Game
     	Upon entering the screen, a WebSocket connection is established, and a message with messageType = ENTER is sent. When the game host displays a question, all participants automatically receive a request and see the question. Pressing the "Answer" button adds the participant to the list in the Game\_Room DB in a first-come, first-served manner.
 
     \subsection{AI Guessing Game}
+        When the operator of the app runs the toonify AI code, the original and result photo files are stored in the problem and answer folders of AWS S3 cloud storage with ascending numerical filenames. When a user requests the AI guessing game in the app, the backend randomly selects a number, generates URLs for the number.png files in the problem and answer folders, and sends them in JSON format.\\
+        When the game host presses the game start button, the first toonified image photo received in JSON format appears simultaneously on the screens of both the game host and the player. In order of arrival, players guess the answer, and when the game host presses the 'Check Answer' button, the correct answer text (character name) appears, and the Toonified image transforms into the original image. When the game host presses the 'Next Question' button, the next toonified image appears, and the game continues in the same manner.\\
+        The AI model for the AI guessing game utilizes the StyleGAN2 model to toonify the given photo input. Initially, when a photo is received, the crop code processes it to ensure facial features are appropriately positioned in the photo. The cropped photo is then used to train a model that generates human facial images similar to the input photo using the pre-trained StyleGAN2 generation model. The newly generated model is combined with another pre-trained model, the toonify face model, to create a toonified image. The toonify image can be adjusted by modifying the alpha value to control the degree of toonification. The generated image is finally stored in AWS S3 in the form of a photo.
+
+        
     \subsection{Geography Guessing Game}
+        In the app, when a user requests a game, it retrieves values such as latitude and longitude of world-famous landmarks from the OpenAI API. Using the obtained values and the Google Street View API, it sends the URL of the Street View image of the famous landmark in JSON format.\\
+        When the game host presses the game start button, the images of the famous landmarks received in JSON format simultaneously appear on the screens of both the game host and the player. By the order of pressing the answer button,, players guess the answer, and when the game host presses the 'Check Answer' button, the name of the landmark appears on the screen. When the game host presses the 'Next Question' button, the next landmark image appears, and the game continues in the same manner.
+
     \subsection{'Gather Up' Game}
+        Using the NUGU AI Speaker, commands such as 'Start a game with 25 people.' can be given. The speaker sends the number '25' to the connected backend. The backend, using its own algorithm, returns a suitable number for the gathering game. The speaker then responds with something like '6 people gather up!' based on the algorithm's output.
+        
     \subsection{App Setting Page}
         App setting page is a page where any kind of settings regarding the app can be modified, such as logging out. The main difference and function of the application’s setting is that it has buttons regarding the refreshing of the space code.\\
         When you press the "Code Refresh" button, the room's access code is randomly changed, and at the same time, all guests who were invited to the room are removed.\\
