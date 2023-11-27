@@ -53,6 +53,7 @@ MC, Manager, Lighting, Appliance, Game
 \end{IEEEkeywords}
 \\
 \section {Role Assignment}
+
 \begin{table}[htbp]
  \begin{tabular}{|p{1cm}|p{1.7cm}|p{5cm}|}
      \hline
@@ -128,7 +129,11 @@ MC, Manager, Lighting, Appliance, Game
         We want to provide  mini-games that require no preparation and is accessible to everyone. We don't want the host to feel stressed about preparing, but rather provide a time for everyone to have fun during the party.
 
     \subsection{Research on Any Relative Software}
-    
+        \subsubsection{Ten-Ten arcade}
+            'Ten-Ten' is a multiplayer battle game designed for accessible and enjoyable gaming experiences. The software stands out with its simplicity, allowing users to swiftly create and join game rooms through barcode scanning.\\
+            Notable features include real-time multiplayer connectivity, making it ideal for social settings like college events and company orientations. The game offers a diverse range of options, from smartphone-based games to simultaneous multiplayer experiences, catering to varied preferences.\\
+            The software's competitive edge lies in its robust ranking and statistics system. Displaying top 100 rankings for each game, it fosters competition and motivates players to challenge themselves. Additionally, the visualization of player activity provides a quick overview of their engagement.\\
+            It offers a user-friendly and socially connected multiplayer gaming platform with diverse game options and a compelling ranking system. Its simplicity and versatility make it suitable for various social gatherings and events.
     \section{Requirement Analysis}
     
     \subsection{Logging In}
@@ -166,7 +171,7 @@ MC, Manager, Lighting, Appliance, Game
         \item Gather up: Game operator first inputs the number of participants. NUGU speaker plays any music for about 10 seconds, stop the music and tell how many people to gather up. Then, participants gather up according to the given number and participants who could not gather up are eliminated. The process will be entirely conducted by the NUGU speaker, and the given number will be calculated by a pre-set algorithm
     \end{itemize}
     
-\section{Development environment}
+\section{Development Environment}
     \subsection{Choice of Software}
     
     \begin{table}[htbp]
@@ -289,7 +294,23 @@ MC, Manager, Lighting, Appliance, Game
         \end{figure}
         \subsubsection{AWS EC2}
         AWS EC2, part of Amazon Web Services, is a scalable and flexible cloud computing platform that provides virtual servers known as instances. These instances can be customized to run various operating systems and applications, making it a cornerstone for cloud-based software development. Developers can launch, manage, and scale virtual machines based on their needs. AWS EC2 offers various instance types optimized for different workloads, including compute, memory, and storage-optimized instances, enabling developers to choose the right infrastructure for their applications. It plays a critical role in building and deploying web applications, backend services, and other software solutions in the cloud.\\
-    
+        
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=6cm]{Images/logo/awss3.png}}
+        \label{fig}
+        \caption{Logo of AWS S3}
+        \end{figure}
+        \subsubsection{AWS S3}
+        AWS S3, part of the Amazon Web Services suite, is a highly scalable object storage service. It provides developers with a secure and durable solution for storing and retrieving data in the cloud. Using S3, developers can create storage buckets to organize and manage their data, whether it be for static website hosting, data archiving, or backup. AWS S3 offers features such as versioning, access control, and seamless integration with other AWS services. Its reliability and scalability make it a fundamental component for data storage in various cloud-based applications and services.\\
+
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=4.5cm]{Images/logo/openai.png}}
+        \label{fig}
+        \caption{Logo of OpenAI}
+        \end{figure}
+        \subsubsection{OpenAI API}
+        OpenAI API is a powerful artificial intelligence service provided by OpenAI. It allows developers to integrate natural language processing and generation capabilities into their applications. With OpenAI API, developers can build applications that understand, generate, and interact with human-like text. It's designed to handle a variety of language tasks, such as text completion, language translation, and conversation generation. OpenAI API empowers developers to create intelligent and context-aware applications, enhancing the overall user experience with advanced language understanding.\\
+
         \begin{figure}[htbp]
         \centerline{\includegraphics[width=4.5cm]{Images/logo/forge.png}}
         \label{fig}
@@ -369,7 +390,7 @@ MC, Manager, Lighting, Appliance, Game
         \end{figure}
         \subsubsection{TeXLive}
         TeX Live is a comprehensive distribution of the TeX typesetting system, which is widely used for document preparation in fields such as scientific and technical publishing, academia, and literature. It is cross-platform, supporting Windows, macOS, and Linux, and provides a vast collection of packages and fonts to address a wide range of document types and formats. TeX Live is renowned for its high-quality typesetting and is often used to create documents with complex layouts, mathematical notation, and bibliographies. It is the go-to choice for authors and researchers who require precise control over the visual appearance of their documents.\\
-
+        
 \section{Specification}
     \subsection{Loading Page}
         When a application communicates with servers, a delay is inevitable in the process. During the delay, it might show just a blank screen to users. To prevent users from getting a blank page, a loading screen will appear instead. This applies to all functions that require server communication including login, register, space creation, space connection and etc. \\
@@ -469,7 +490,7 @@ MC, Manager, Lighting, Appliance, Game
     \subsection{Module 3: Database}
     \subsection{Module 4: AI}
     
-\section{use cases}
+\section{Use Cases}
     \subsection{Use Case 1: Loading Page}
     \subsection{Use Case 2: Signing Up}
     \subsection{Use Case 3: Logging In}
@@ -482,7 +503,7 @@ MC, Manager, Lighting, Appliance, Game
     \subsection{Use Case 10: Game Selection}
     \subsection{Use Case 11: Game Play}
     \subsection{Use Case 12: Code Refresh}
-\section{conclusion \& discussion}
+\section{Conclusion \& Discussion}
 
 \section*{Acknowledgment}
 
