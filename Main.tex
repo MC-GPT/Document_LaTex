@@ -675,13 +675,64 @@ MC, Manager, Lighting, Appliance, Game
             When the server receives a request from the frontend, it interacts with the database. For user-initiated data creation, it processes using INSERT SQL; for data reading, it uses SELECT; for data updating, it employs UPDATE, and for data deletion, it utilizes DELETE SQL. Additionally, the server can leverage data statistics for further analysis and processing.\\
         \subsubsection{Component}
             \begin{itemize}
-                \item 
+                \item Member Table\\
+                The Member table stores information about registered members. It includes columns such as id, account, name, nickname, password, myHomes, homes, and roles. The id is the primary key, automatically generated as an ascending number even when not entered by the user. The account column is the same as the username in many services and must be unique. Name represents the user's name, nickname is  the nickname of users, password is the user's password, myHomes lists spaces created by the user in a multi relationship with the Home table, homes list spaces the user has participated in code-wise, in a one-to-many relationship with the Guest table. Roles are a list specifying the access level assigned to the member in the context of Spring Security.
+                \vspace{3mm}
+                \item Authority Table\\
+                The Authority table, related to Spring Security, stores information about the authorities assigned to members. It includes columns such as id, name, and member. The id is the primary key, automatically generated as an ascending number. The name column holds the name of the authority assigned to a member. The member column is mapped to the id of the Member table, establishing a many-to-one relationship.
+                \vspace{3mm}                
+                \item Guest Table\\
+                The Guest table is designed for specifying the relationship between members and spaces. It includes columns such as id, member\_id, and home\_id. The id is the primary key, automatically generated as an ascending number. The member\_id establishes a many-to-one relationship with a single data entry in the Member table, and home\_id establishes a many-to-one relationship with a single data entry in the Home table.
+                \vspace{3mm}                
+                \item Home Table\\
+                The Home table stores information about spaces created by users. It includes columns such as id, name, code, owner, guests, and appliances. The id is the primary key, automatically generated as an ascending number. Name represents the space's name, code is a combination of a random 4-digit number and the ID of the member who created the space. Owner refers to the member who created the space and establishes a many-to-many relationship with the Member table. Guests is a list of members who have participated in the space, establishing a one-to-many relationship with the Guest table. Appliances is a list of appliances included in the space, establishing a one-to-many relationship with the Appliance table.
+                \vspace{3mm}                
+                \item Appliance Table\\
+                The Appliance table stores information about appliances. It includes columns such as id, serialNumber, name, isLight, type, locked, and home. The id is the primary key, automatically generated as an ascending number. SerialNumber stores the serial number of the appliance, isLight indicates whether the appliance includes a light, type automatically specifies the type of appliance, locked stores the lock setting of the appliance (True/False), and home indicates which space the appliance belongs to, establishing a many-to-one relationship with the Home table.
+                \vspace{3mm}                
+                \item Home\_Game Table\\
+                The Home\_Game table specifies the relationship between spaces and games. It includes columns such as id, home, game, mc, and realTimeUrl. The id is the primary key, automatically generated as an ascending number. Home is mapped to a data entry in the Home table, game is mapped to a data entry in the Game table, mc is mapped to the Member table, representing the game host, and realTimeUrl stores the real-time URL for game progress.
+                \vspace{3mm}                
+                \item Game Table\\
+                The Game table stores information about AI mini-games. It includes columns such as id, name, gameType, and quizUrl. The id is the primary key, automatically generated as an ascending number. Name holds the game's name, gameType is an integer value specifying the type of game (e.g., app-based or speaker-based), and quizUrl stores the URL needed for the game progress, received from the server.
             \end{itemize}
     \subsection{Module 4: AI}
         \subsubsection{Purpose}
+            The primary purpose of this AI module is to enhance and modify images specifically for a gaming environment, particularly within a game tab. The core focus is on machine learning, primarily the StyleGAN2 model, to process and manipulate photos. The main goal is to generate images that resemble Disney characters. This involves a combination of image processing techniques, such as cropping, inversion, and toonification, executed through a PyTorch implementation of the StyleGAN2-based generator and discriminator. The module is designed to integrate seamlessly with an AWS S3 bucket ("MC\_NUGU"), in charge of storing the processed images.\\
         \subsubsection{Functionality}
+            It begins by establishing a connection to the designated AWS S3 bucket, enabling seamless interaction with cloud storage. The core script orchestrates various image processing tasks, including cropping, image inversion, and applying a toonify effect, utilizing the StyleGAN2 model. The projector component iteratively adjusts latent codes to generate images resembling input face images, while the toonify file blends outputs of pre-trained StyleGAN2-based generators to create toonified images. The PyTorch implementation enhances the generative capabilities of the StyleGAN2 model with features like image blending and merging. Final step is uploading toonified images back to the AWS S3 bucket for integration into MC-GPT.\\
         \subsubsection{Location of source code}
+            \begin{itemize}
+                \item github.com/MC-NUGU/AI
+            \end{itemize}
         \subsubsection{Component}
+            \begin{itemize}
+                \item .gitignore: File for preventing unnecessary files from committing to git\\
+                \vspace{3mm}
+                \item crop.py: File that crops images so that it can be used for the AI model. The key function is to align facial features and make the size of the image all equal.\\
+                \vspace{3mm}
+                \item imgs folder: Folder containing images needed for the machine learning code. Consists of original file, cropped file and toonified file. Also the target directory for cropping and toonify. Images are saved and will be sent to aws s3 by the main.py.\\
+                \vspace{3mm}
+                \item inversion\_codes folder: Folder containing images that are converted to a .pt file. This is also the target folder of projector.py. These files will be later used to generate images that can be used to toonify.\\
+                \vspace{3mm}
+                \item main.py: Main python file that performs a series of image processing tasks using various functions imported from custom modules and external libraries. It starts by establishing a connection to an Amazon S3 bucket using the AWS SDK for Python (Boto3). The script then crops an image, performs an image inversion, and applies a toonify effect to the cropped image. The resulting toonified image is saved locally. Finally, the script attempts to upload the toonified image to an S3 bucket named "MC\_NUGU" using the established connection.\\
+                \vspace{3mm}
+                \item model.py: This code defines a PyTorch implementation of a StyleGAN2-based generator (`Generator` class) and discriminator (`Discriminator` class) for image generation tasks. The generator employs convolutional layers, noise injections, and skip connections to create diverse images based on input styles, while the discriminator aims to distinguish between real and generated images. The code also includes functionalities for image blending, patch swapping, and merging, enhancing the generator's versatility.\\
+                \vspace{3mm}
+                \item Models folder: Folder containing pre-trained AI models. The two main models are the pre-trained face model and disney model.\\
+                \item Notebook folder: Folder containing jupyter notebook files to show the pipeline of the process. It contains example images processing.\\
+                \vspace{3mm}
+                \item projector.py: This file defines an image inversion process using a pre-trained StyleGAN2 based generator. The inversion is performed to find a latent code that generates an image close to a given input face image. The script initializes the generator, loads a pre-trained model, and defines a loss function combining perceptual, mean squared error (MSE), and Gaussian distribution losses. The inversion process iteratively adjusts the latent code using an Adam optimizer. The final inverted latent code and the generated image are saved to an output path. It also utilizes the LPIPS library for perceptual loss calculation and some utility functions for image processing. \\
+                \vspace{3mm}
+                \item toonify.py: This file defines an image toonification process using two pre-trained StyleGAN2-based generators. The function `img\_toonify` takes a latent code and generates a toonified image, which is saved at the specified `save\_path`. The toonification is achieved by blending the intermediate outputs of corresponding layers in the two generators, controlled by the parameters `num\_swap` and `alpha`. The `early\_alpha` parameter controls the influence of the first generator, providing a gradual transition. The generators and latent codes are loaded from pre-trained models, and the result is saved as an image using Matplotlib.\\
+                \vspace{3mm}
+                \item util.py: This file encompasses a collection of utility functions tailored for working with PyTorch tensors and images, primarily within the context of StyleGAN2-based models. Key functionalities include loading pre-trained StyleGAN2 generators, processing inverted style codes, and visualizing images. The code facilitates the conversion between style vectors and lists, flattening spatial activations, and handling segmentation labels. Additionally, it offers functions for image manipulation, such as interpolation between style vectors, computing distances between tensors, and preparing bounding box visualizations. These utilities collectively serve to streamline tasks related to model loading, style code manipulation, and image visualization in the domain of generative adversarial networks, specifically StyleGAN2.\\
+                \vspace{3mm}
+                \item toonify.ipynb: jupyter notebook version of toonify.py\\
+                \item project.ipynb: jupyter notebook version of projector.py\\
+                \item crop.ipynb: jupyter notebook version of crop.py\\
+
+            \end{itemize}
     
 \section{Use Cases}
     \subsection{Use Case 1: Loading Page}
