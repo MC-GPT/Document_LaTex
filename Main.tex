@@ -586,7 +586,7 @@ MC, Manager, Lighting, Appliance, Game
             \vspace{3mm}
             
             The third module is the machine learning module for the AI image game. The primary functionality of the AI code is to process and manipulate photos for games on the game tab, creating generative image files and changing original photos to resemble Disney characters. Anything related to photos is processed using the StyleGAN2 model. To utilize the StyleGAN2 model, AI frameworks such as PyTorch and Tensorflow are employed.\\
-            The main script is the core component, establishing a connection to an AWS S3 bucket and performing tasks such as cropping, image inversion, and applying a toonify effect. It attempts to upload the resulting toonified image to the "MC-NUGU" S3 bucket.\\
+            The main script is the core component, establishing a connection to an AWS S3 bucket and performing tasks such as cropping, image inversion, and applying a toonify effect. It attempts to upload the resulting toonified image to the "MC-GPT" S3 bucket.\\
             The projector defines an image inversion process using a pre-trained StyleGAN2-based generator. It iteratively adjusts a latent code to generate an image close to a given input face image. The result is saved to an output path, utilizing the LPIPS library for perceptual loss calculation.\\
             The toonify file defines an image toonification process using two pre-trained StyleGAN2-based generators. It blends intermediate outputs of corresponding layers in the generators to create a toonified image.\\
             The model defines a PyTorch implementation of a StyleGAN2-based generator (Generator class) and discriminator (Discriminator class) for image generation tasks. It includes functionalities for image blending, patch swapping, and merging, enhancing the generator's versatility.\\
@@ -602,7 +602,7 @@ MC, Manager, Lighting, Appliance, Game
             \vspace{3mm}
         \subsubsection{Location of source code}
             \begin{itemize}
-                \item  github.com/MC-NUGU/Frontend
+                \item  github.com/MC-GPT/Frontend
             \end{itemize}
             
             \begin{table}[]
@@ -613,49 +613,49 @@ MC, Manager, Lighting, Appliance, Game
                     \hline 
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/\end{tabular} & 
+                    MC-GPT/\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}              assets\\src\\.eslintrc.json\\.prettierrc\\App.js\\app.json\\babel.config.js\\package-lock.json\\package.json \end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/assets/\end{tabular} & 
+                    MC-GPT/assets/\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    background.png\\brightness.png\\Button\_off.png\\Button\_on.png\\color.png\\Disney.png\\Gatherup.png\\Geo.png\\icon.png\\mcnugulogo.png\\NewJeans.png\\nugu\_neon.gif\\nugu\_neon.png\\onoff.png\\play.png\\profile.png\\vote.gif\\\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/assets/\\app/\\\end{tabular} & 
+                    MC-GPT/assets/\\app/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    AirConditioner.png\\AirPurifier.png\\Beer.png\\disco-ball.png\\GameConsole.png\\GameJoystick.png\\Hanger.png\\HomeTheater.png\\KitchenLight.png\\Lamp.png\\LightBulb.png\\MoodupFridge.png\\Shower.png\\Speaker.png\\Standbyme.png\\WashingMachine.png\\\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/\end{tabular} & 
+                    MC-GPT/src/\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    
                     App.js\\color.js\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/\\components/\end{tabular} & 
+                    MC-GPT/src/\\components/\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    Button.js\\Input.js\\Popup.js\\PopupB.js\\SafeInputView.js\\TextAnimation.js\\TextButton.js\\\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    
                     react\\react-native\\prop-types\\expo/vector-icons \end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/\\contexts/\end{tabular} & 
+                    MC-GPT/src/\\contexts/\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    GameContexts.js\\MainContext.js\\UserContext.js\\\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    
                     react\\prop-types\\ \end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/\\navigations\\\end{tabular} & 
+                    MC-GPT/src/\\navigations\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    Appliances.js\\AuthStack.js\\ContentTab.js\\index.js\\MainStack.js\\\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    
                     react-native\\expo/vector-icons\\react-navigation/material-\\top-tabs\\react-native-safe-area-\\context\\react-navigation/native\\react-navigation/native-\\stack\\react-navigation/bottom-\\tabs \end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/\\screens\\\end{tabular} & 
+                    MC-GPT/src/\\screens\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    ElectroInfoScreen.js\\ElectronicScreen.js\\GameListScreen.js\\GameManageScreen.js\\GamePlayScreen.js\\HomeScreen.js\\LightningScreen.js\\LoadingScreen.js\\MoodLightScreen.js\\RoomScreen.js\\SettingsScreen.js\\SignInScreen.js\\SignUpScreen.js\\\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    
                     react\\react-native\\prop-types\\expo/vector-icons\\react-navigation/native\\react-native-safe-area-\\context\\expo-blur\\axios\\ \end{tabular} \\
@@ -665,20 +665,20 @@ MC, Manager, Lighting, Appliance, Game
             \end{table}
         \subsubsection{Component}
             \begin{itemize}
-                \item MC-NUGU/ : This folder contains frontend source code of MC-NUGU service.
+                \item MC-GPT/ : This folder contains frontend source code of MC-GPT service.
                     \item[-] .prettierrc : prettier is a code formatting tool that developers can use to automatically format their code using preset guidelines. 
                     \item[-] .eslintrc.json : ESlint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
                 \vspace{3mm}
                 
-                \item MC-NUGU/assets : This folder contains images and font files used within the app.
+                \item MC-GPT/assets : This folder contains images and font files used within the app.
                 \vspace{3mm}
                 
-                \item MC-NUGU/src : This folder is the main folder containing components, contexts, navigation, and screens.
+                \item MC-GPT/src : This folder is the main folder containing components, contexts, navigation, and screens.
                     \item[-] App.js : This file is a root component that is wrapped in the providers of context API for global state management.
                     \item[-] colors.js : This file contains information about colors used throughout the app. This exported file is used to manage the colors that are mainly used at once. 
                 \vspace{3mm}
                 
-                \item MC-NUGU/src/components : This folder contains custom components created using basic components. By utilizing custom components, development can be facilitated by combining frequently used components for app development.
+                \item MC-GPT/src/components : This folder contains custom components created using basic components. By utilizing custom components, development can be facilitated by combining frequently used components for app development.
                     \item[-] Button.js : This Button component is a custom component for frequently used primary buttons. It receives props such as title, onPress, onLongPress, disabled, isLoading, styles, and buttonType to define custom buttons that vary depending on the purpose of use.
                     \item[-] Input.js : This Input component is a custom component created by adding an icon, keyboard type, etc. to the text input component provided by React Native. It also added a function that emphasizes the boundaries of the window that the user is entering and a function that operates the keyboard.
                     \item[-] Popup.js : This Pop-up component is a custom component created by adding an input window and text based on the modal window provided by React Native.
@@ -687,13 +687,13 @@ MC, Manager, Lighting, Appliance, Game
                     \item[-] TextButton.js : This TextButton component is a custom component created by adding style based on the Pressable component provided by React Native. It can be used throughout the app, so it is designed to apply the style at once.
                 \vspace{3mm}
                 
-                \item MC-NUGU/src/contexts : The context api is configured to manage the state which is used in the app service globally.
+                \item MC-GPT/src/contexts : The context api is configured to manage the state which is used in the app service globally.
                     \item[-] GameContext.js : Game context is a component that defines game-related state variables and functions used globally.
                     \item[-] MainContext.js : Main context defines the global state variables used across the app.
                     \item[-] UserContext.js : User context is a global status management code that manages information related to a user and tokens used for backend communication.
                 \vspace{3mm}
                 
-                \item MC-NUGU/src/navigations
+                \item MC-GPT/src/navigations
                     \item[-] Appliances.js : Appliances is a navigation that goes beyond the light list screen and the non-light list screen of home appliances.
                     \item[-] AuthStack.js : Authstack is a navigation that contains not-logged-in screens. It consists of LoginScreen and SignupScreen.
                     \item[-] ContentTab.js : Content tab is a navigation used for bottom tab navigation. It consists of Home, Appliance, Game, and Settings screens
@@ -701,7 +701,7 @@ MC, Manager, Lighting, Appliance, Game
                     \item[-] MainStack.js : MainStack is a navigation for moving between screens using stack navigator. It includes RoomScreen, HomeScreen, ContentTab, MoodLightScreen, ElectroInfoScreen, SettingsScreen, GamePlayScreen, GameManageScreen.
                 \vspace{3mm}
                 
-                \item MC-NUGU/src/screens
+                \item MC-GPT/src/screens
                     \item[-] ElectroInfoScreen.js : The ElectroInfoScreen is a screen that controls the detailed operation of the non-light home appliances.
                     \item[-] ElectronicScreen.js : The ElectronicScreen is a screen that displays, adds, and deletes a list of non-light home appliances. 
                     \item[-] GameListScreen.js : The GameListScreen is a screen that displays a list of party games on the screen through game information received from the server.
@@ -726,8 +726,8 @@ MC, Manager, Lighting, Appliance, Game
             \vspace{3mm}
         \subsubsection{Location of source code}
             \begin{itemize}
-                \item Main Server : github.com/MC-NUGU/Backend
-                \item Second Server : github.com/MC-NUGU/Backend-for-AI
+                \item Main Server : github.com/MC-GPT/Backend
+                \item Second Server : github.com/MC-GPT/Backend-for-AI
             \end{itemize}
 
             \begin{table}[]
@@ -738,83 +738,83 @@ MC, Manager, Lighting, Appliance, Game
                     \hline 
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/\end{tabular} & 
+                    MC-GPT/\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}
                     src/main\\build.gradle\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/main/\end{tabular} & 
+                    MC-GPT/src/main/\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}
                     java/com.aise.mcnugu\\resources\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/main/\\resources/\\\end{tabular} & 
+                    MC-GPT/src/main/\\resources/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}
                     application.properties\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/main/\\java/com.aise.com/\\\end{tabular} & 
+                    MC-GPT/src/main/\\java/com.aise.com/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    config\\controller\\domain\\dto\\repository\\service\\websocket\\McNuguApplication.java \end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}
                     SpringBootAppli-\\cation\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/main/\\java/com.aise.mcnugu/\\config/\\\end{tabular} & 
+                    MC-GPT/src/main/\\java/com.aise.mcnugu/\\config/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    jwt\\SecurityConfig.java\\WebSocketConfig.java\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    Configuration\\EnableWebSecurity\\EnableWebSocket\\RequiredArgsConstructor\\Bean \end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/main/\\java/com.aise.mcnugu/\\config/jwt/\\\end{tabular} & 
+                    MC-GPT/src/main/\\java/com.aise.mcnugu/\\config/jwt/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    TokenInfo.java\\JwtTokenProvider.java\\JwtAuthentication-\\Filter.java\\CustomUserDetails-\\Service.java\\\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    Builder\\Data\\AllArgsConstructor\\Component\\RequiredArgsConstructor\\Service\\Slf4j \end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/main/\\java/com.aise.mcnugu/\\config/controller/\\\end{tabular} & 
+                    MC-GPT/src/main/\\java/com.aise.mcnugu/\\config/controller/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    MemberContoller.java\\HomeController.java\\ApplianceController.java\\GuestController.java\\NuguController.java\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    RestController\\RequiredArgsConstructor\\Slf4j \end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/main/\\java/com.aise.mcnugu/\\config/domain/\\\end{tabular} & 
+                    MC-GPT/src/main/\\java/com.aise.mcnugu/\\config/domain/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}} Member.java\\Authority.java\\Home.java\\Appliance.java\\Guest.java\\Game.java\\Home\_Game.java\\\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    Entity\\Getter\\Setter\\AllArgsConstructor\\NoArgsConstructor\\Builder\\ \end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/main/\\java/com.aise.mcnugu/\\config/dto/\\\end{tabular} & 
+                    MC-GPT/src/main/\\java/com.aise.mcnugu/\\config/dto/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                         nugu\\SignupRequest.java\\LoginRequest.java\\CreateHomeRequest.java\\MainResponse.java\\CreateAppRequest.java\\GameRoomRequest.java\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    
                     Getter\\Builder \end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/main/\\java/com.aise.mcnugu/\\config/dto/nugu/\\\end{tabular} & 
+                    MC-GPT/src/main/\\java/com.aise.mcnugu/\\config/dto/nugu/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    NuguActionDto.java\\NuguGatherUpDto.java\\NuguReturnDto.java\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}
                     Getter\\Setter\\NoArgsConstructor \end{tabular} \\
                     \hline
 
                     \begin{tabular}[t]{@{}l@{}} 
-                    MC-NUGU/src/main/\\java/com.aise.mcnugu/\\config/repository/\\\end{tabular} & 
+                    MC-GPT/src/main/\\java/com.aise.mcnugu/\\config/repository/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    MemberRepository.java\\HomeRepository.java\\ApplianceRepository.java\\GuestRepository.java\\GameRepository.java\\Home\_Game-\\Repository.java\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    JPARepository \end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/main/\\java/com.aise.mcnugu/\\config/service/\\\end{tabular} & 
+                    MC-GPT/src/main/\\java/com.aise.mcnugu/\\config/service/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    MemberService.java\\HomeService.java\\ApplianceService.java\\GuestService.java\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    
                     Service\\RequiredArgsConstructor\\Transactional\\Slf4j \end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/src/main/\\java/com.aise.mcnugu/\\config/websocket/\\\end{tabular} & 
+                    MC-GPT/src/main/\\java/com.aise.mcnugu/\\config/websocket/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    GameRoom.java\\Message.java\\GameRoomService.java\\GameRoomController.java\\WebSocketHandler.java\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                            Getter\\Setter\\Component\\Service\\RestController\\RequiredArgsConstructor\\Slf4j\\ \end{tabular} \\
                     \hline
@@ -824,7 +824,7 @@ MC, Manager, Lighting, Appliance, Game
                         
         \subsubsection{Component}
             \begin{itemize}
-                \item Main Server (MC-NUGU/Backend)
+                \item Main Server (MC-GPT/Backend)
                     \item[-]build.gradle : This file is a build configuration for the project. It contains a set of plugins and dependencies essential for the proper execution of the Spring Boot application.
                 \vspace{3mm}
                 
@@ -896,7 +896,7 @@ MC, Manager, Lighting, Appliance, Game
                     \item[-] WebSocketHandler.java : This is a file that handle websocket events, such as user connections, disconnections, and facilitating real-time communication.
                 \vspace{3mm}
 
-                \item Second Server (MC-NUGU/Backend-for-AI/)
+                \item Second Server (MC-GPT/Backend-for-AI/)
                     \item[-] app.py : This file define the routes, endpoints and behavior for the second API server.
                     \item[-] gpt.py : This file contains code related to OpenAI API, indicating functionality for natural language processing or text generation.
                     \item[-] streetview.py : This file handle functionality related to street view, interacting with Google Street View API.
@@ -936,14 +936,14 @@ MC, Manager, Lighting, Appliance, Game
             \end{itemize}
     \subsection{Module 4: AI}
         \subsubsection{Purpose}
-            The primary purpose of this AI module is to enhance and modify images specifically for a gaming environment, particularly within a game tab. The core focus is on machine learning, primarily the StyleGAN2 model, to process and manipulate photos. The main goal is to generate images that resemble Disney characters. This involves a combination of image processing techniques, such as cropping, inversion, and toonification, executed through a PyTorch implementation of the StyleGAN2-based generator and discriminator. The module is designed to integrate seamlessly with an AWS S3 bucket ("MC\_NUGU"), in charge of storing the processed images.\\
+            The primary purpose of this AI module is to enhance and modify images specifically for a gaming environment, particularly within a game tab. The core focus is on machine learning, primarily the StyleGAN2 model, to process and manipulate photos. The main goal is to generate images that resemble Disney characters. This involves a combination of image processing techniques, such as cropping, inversion, and toonification, executed through a PyTorch implementation of the StyleGAN2-based generator and discriminator. The module is designed to integrate seamlessly with an AWS S3 bucket ("MC\_GPT"), in charge of storing the processed images.\\
             \vspace{3mm}
         \subsubsection{Functionality}
             It begins by establishing a connection to the designated AWS S3 bucket, enabling seamless interaction with cloud storage. The core script orchestrates various image processing tasks, including cropping, image inversion, and applying a toonify effect, utilizing the StyleGAN2 model. The projector component iteratively adjusts latent codes to generate images resembling input face images, while the toonify file blends outputs of pre-trained StyleGAN2-based generators to create toonified images. The PyTorch implementation enhances the generative capabilities of the StyleGAN2 model with features like image blending and merging. Final step is uploading toonified images back to the AWS S3 bucket for integration into MC-GPT.\\
             \vspace{3mm}
         \subsubsection{Location of source code}
             \begin{itemize}
-                \item github.com/MC-NUGU/AI
+                \item github.com/MC-GPT/AI
             \end{itemize}
 
             \begin{table}[]
@@ -954,52 +954,52 @@ MC, Manager, Lighting, Appliance, Game
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/\\\end{tabular} & 
+                    MC-GPT/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}
                     GAN\_Model\\.gitignore\\readme.md\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/\\GAN\_Model/\\\end{tabular} & 
+                    MC-GPT/\\GAN\_Model/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    \_\_pycache\_\_\\crop.py\\face.pt8udytfs5tmp\\imgs\\inversion\_codes\\inversion\_stats.npz\\main.py\\model.py\\Models\\Notebook\\op\\Pre-trained Data\\projector.py\\readme.md\\toonify.py\\util.py\\ \end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    math\\ntpath\\tensorflow\\retinaface\\numpy\\PIL\\cv2\\torchvision\\boto3\\random\\functools\\operator\\torch\\kornia\\os\\pathlib\\lpips\\tqdm\\matplotlib\\scipy\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/\\GAN\_Model/\\\_\_pycache\_\_/\\\end{tabular} &
+                    MC-GPT/\\GAN\_Model/\\\_\_pycache\_\_/\\\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    util.cpython-310.pyc\\toonify.cpython-310.pyc\\projector.cpython-310.pyc\\model.cpython-310.pyc\\crop.cpython-310.pyc\\\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/\\GAN\_Model/imgs/\end{tabular} & 
+                    MC-GPT/\\GAN\_Model/imgs/\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    Cat.jpg\\crop\_Cat.jpg\\crop\_Irene.jpg\\crop\_IU.jpg\\crop\_Jang.jpg\\crop\_Jenny.jpg\\crop\_Karina.jpg\\crop\_Suzy.jpg\\crop\_Winter\_2.jpg\\crop\_Winter.jpg\\IU.jpg\\Jang.jpg\\Jenny.JPG\\Karina.jpg\\Suzy.jpg\\toonify\_Cat.png\\toonify\_IU.png\\toonify\_Jang.png\\toonify\_Jenny.png\\toonify\_Karina.png\\toonify\_Suzy.png\\toonify\_Winter\_2.png\\toonify\_Winter.png\\Winter\_2.jpg\\Winter.jpg\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/\\GAN\_Model/\\inversion\_codes/\\\end{tabular} & 
+                    MC-GPT/\\GAN\_Model/\\inversion\_codes/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    Cat.pt\\IU.pt\\Jang.pt\\Jenny.pt\\Karina.pt\\Suzy.pt\\Winter\_2.pt\\Winter.pt\\\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/\\GAN\_Model/Models/\\\end{tabular} & 
+                    MC-GPT/\\GAN\_Model/Models/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    disney.pt\\face.pt\\face.pto0jxo7vdtmp\\inversion\_stats.npz\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/\\GAN\_Model/\\Notebook/\\\end{tabular} & 
+                    MC-GPT/\\GAN\_Model/\\Notebook/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    toonify.ipynb\\project.ipynb\\crop.ipynb\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    tensorflow\\retinaface\\matplotlib\\numpy\\PIL\\ntpath\\cv2\\math\\os\\torch\\torchvision\\tqdm\\lpips\\\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/\\GAN\_Model/op/\\\end{tabular} & 
+                    MC-GPT/\\GAN\_Model/op/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    \_\_init\_\_.py\\\_\_pycache\_\_\\fused\_act.py\\upfirdn2d.py \end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}
                     os\\torch\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-NUGU/\\GAN\_Model/op/\\\_\_pycache\_\_/\\\end{tabular} & 
+                    MC-GPT/\\GAN\_Model/op/\\\_\_pycache\_\_/\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    upfirdn2d.cpython-310.pyc\\fused\_act.cpython-310.pyc\\\_\_init\_\_.cpython-310.pyc\end{tabular} \\
                     \hline
                     
@@ -1028,7 +1028,7 @@ MC, Manager, Lighting, Appliance, Game
                 \vspace{3mm}
                 \item inversion\_codes folder: Folder containing images that are converted to a .pt file. This is also the target folder of projector.py. These files will be later used to generate images that can be used to toonify.\\
                 \vspace{3mm}
-                \item main.py: Main python file that performs a series of image processing tasks using various functions imported from custom modules and external libraries. It starts by establishing a connection to an Amazon S3 bucket using the AWS SDK for Python (Boto3). The script then crops an image, performs an image inversion, and applies a toonify effect to the cropped image. The resulting toonified image is saved locally. Finally, the script attempts to upload the toonified image to an S3 bucket named "MC\_NUGU" using the established connection.\\
+                \item main.py: Main python file that performs a series of image processing tasks using various functions imported from custom modules and external libraries. It starts by establishing a connection to an Amazon S3 bucket using the AWS SDK for Python (Boto3). The script then crops an image, performs an image inversion, and applies a toonify effect to the cropped image. The resulting toonified image is saved locally. Finally, the script attempts to upload the toonified image to an S3 bucket named "MC\_GPT" using the established connection.\\
                 \vspace{3mm}
                 \item model.py: This code defines a PyTorch implementation of a StyleGAN2-based generator (`Generator` class) and discriminator (`Discriminator` class) for image generation tasks. The generator employs convolutional layers, noise injections, and skip connections to create diverse images based on input styles, while the discriminator aims to distinguish between real and generated images. The code also includes functionalities for image blending, patch swapping, and merging, enhancing the generator's versatility.\\
                 \vspace{3mm}
@@ -1048,28 +1048,43 @@ MC, Manager, Lighting, Appliance, Game
             \end{itemize}
     
 \section{Use Cases}
-    \subsection{Use Case 1: Loading Page}
+    \subsection{Use Case 1: Signing Up}
+        The signing up or registration page is the first page a user must encounter. It requires information such as name, nickname, ID, password and password check. 
+    \subsection{Use Case 2: Logging In}
+        
+    \subsection{Use Case 3: Space Adding \& deleting}
         \begin{figure}[htbp]
-            \centerline{\includegraphics[width=3cm]{Images/screen/game/geo/GEO2_HOST.PNG}
-            \includegraphics[width=3cm]{Images/screen/game/geo/GEO2_PLAYER.PNG}}
+            \centerline{\includegraphics[width=3cm]{Images/screen/space/3_SPACE_POPUP1_FILLED.PNG}
+            \includegraphics[width=3cm]{Images/screen/space/4_SPACE_CREATE_ALERT.PNG}}
             \caption{Geography Guessing Game}
             \label{fig}
         \end{figure}
-    \subsection{Use Case 2: Signing Up}
-    \subsection{Use Case 3: Logging In}
-    \subsection{Use Case 4: Space Adding \& deleting}
-    \subsection{Use Case 5: Space Entering}
-    \subsection{Use Case 6: Main Page - Music \& Exit}
-    \subsection{Use Case 7: Appliance Addition \& Delete}
-    \subsection{Use Case 8: Appliance Control}
-    \subsection{Use Case 9: GPT Lighting Control}
-    \subsection{Use Case 10: Game Selection}
-    \subsection{Use Case 11: Game Play}
-    \subsection{Use Case 12: Code Refresh}
+        Users can add and delete spaces fron
+    \subsection{Use Case 4: Space Entering}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/space/6_SPACE_POPUP2_FILLED.PNG}
+            \includegraphics[width=3cm]{Images/screen/space/7_SPACE_ADD_ALERT.PNG}}
+            \caption{Geography Guessing Game}
+            \label{fig}
+        \end{figure}
+    \subsection{Use Case 5: Main Page - Music \& Exit}
+        
+    \subsection{Use Case 6: Appliance Addition \& Delete}
+        
+    \subsection{Use Case 7: Appliance Control}
+        
+    \subsection{Use Case 8: GPT Lighting Control}
+        
+    \subsection{Use Case 9: Game Selection}
+        
+    \subsection{Use Case 10: Game Play}
+        
+    \subsection{Use Case 11: Code Refresh}
+        
 \section{Conclusion \& Discussion}
 
 \section*{Acknowledgment}
 
-%\tableofcontents
+\tableofcontents
 
 \end{document}
