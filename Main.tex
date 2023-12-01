@@ -397,9 +397,9 @@ MC, Manager, Lighting, Appliance, Game
         This loading page UI is made by ‘skeleton’ from React Native. While receiving data from the server, components without received data shows that it is loading. In other words, while server is processing and receiving data after a http request has been made by the client. It can make a seamless and user friendly UI by using the loading screen.
     \subsection{Login Page}
         \begin{figure}[htbp]
-        \centerline{\includegraphics[width=3cm]{Images/screen/1_Login.png}}
-        \label{fig}
-        \caption{Login Page}
+            \centerline{\includegraphics[width=3cm]{Images/screen/login/LOGIN_EMPTY.PNG}}
+            \label{fig}
+            \caption{Login Page}
         \end{figure}
         Logging in is required for users to have access to functions of the application. Without a login, it is impossible to use any of the functions of the app. If the application is not logged in, users can create their own account or login using an account they have created before. \\
         In a back-end point of view, The client receives an ID and password from the user and sends a request to the server when a button is pressed. On the server, it checks if there is ‘Member’ data in the DB and, if it exists, returns a security token known as JWT. The token expires after a certain time for security reasons and needs to be refreshed.  The client stores the JWT and includes it in the header of every request sent. \\
