@@ -406,78 +406,160 @@ MC, Manager, Lighting, Appliance, Game
         In a front-end point of view, When a user clicks on the ID input field or the password input field, the input field's border is emphasized, and a keyboard appears. The screen moves up when the keyboard appears to ensure that it does not cover the screen.  If the user enters their ID and then presses the next button on the keyboard, it automatically transits to the password input field. The password displayed on the screen is encrypted while it is being entered.  Both the ID and password must be entered for the login button to become active. When the login button is pressed, it changes to a loading screen while the login process is executed on the server. After the login process is completed, the screen transitions to a page with a list of spaces. If the login fails, an Alert message is displayed, and the user remains on the login screen.
     \subsection{Register Page}
         \begin{figure}[htbp]
-        \centerline{\includegraphics[width=3cm]{Images/screen/2_Register.png}}
-        \caption{Login Page}
-        \label{fig}
+            \centerline{\includegraphics[width=3cm]{Images/screen/signup/SIGNUP_EMPTY.PNG}}
+            \caption{Register Page}
+            \label{fig}
         \end{figure}
         Users can sign up by setting a user id and password of their preference. Signing in requires input  of the given information in the sign up process such as user id, password and name. There are boxes for input of the ID, name, nickname, password and password check. ID is the one that should be input in the login process, name refers to real name, nickname will be the name that will be shown to other users, password is also used in the login process and password check is used to double check if the user made their password as intended.\\
         Initially, on the client side, there are character limits and a check to ensure that the password and password check fields match. Once the client-side validation is successful, the client sends these fields to the server because client-side checks can be easily bypassed. On the server side, there is a secondary validation for each field to check for errors. If there are no errors, the data is saved to the Member database.  \\
         For the UI which is similar to the login process, clicking on an input field highlights it, brings up the keyboard, and ensures that the keyboard doesn't cover the screen. Even if the user doesn't directly click on an input field, pressing the next button will move to the next input field. The password and password confirm fields are displayed in an encrypted format. If any of the fields (name, nickname, ID, password, password confirm) are left empty or if the password and password confirm do not match, the sign-up button remains inactive. Only when all input fields are correctly filled does the sign-up button become active. Upon successful registration, the screen transits to the login page. If registration fails, an alert message is displayed, and the user remains on the registration screen.
     \subsection{Space List Page}
-         \begin{figure}[htbp]
-        \centerline{\includegraphics[width=3cm]{Images/screen/3_Space Selection.png}}
-        \caption{Space List Page}
-        \label{fig}
+        \begin{figure}[htbp]
+            \centerline{
+            \includegraphics[width=3cm]{Images/screen/space/1_SPACE_EMPTY.PNG}
+            \includegraphics[width=3cm]{Images/screen/space/8_SPACE_FULL.PNG}}
+            \caption{Space List Page}
+            \label{fig}
         \end{figure}
         “Space” refers to any type of place where parties can be held and these spaces can be added to the application. Page with the list of spaces is where users can outlook the spaces that are registered to the app. It is divided into two parts; first is ‘My Home ', which is the list of spaces that are owned by the user and registered to the application. Second is ‘Guest’ which has a list of spaces that the users are as guests by inputting the entrance code of spaces. Also there are buttons to activate pop-ups that allow users to add a new space or a pop-up for guest users to input the space code they have received.\\
         The JWT, sent in the header, is decoded to extract the user's ID. Using this ID, both the list of spaces owned by the member and the list of spaces the member has joined as a guest are retrieved.\\
         On the screen, the space list is displayed in two columns, with a "My Home" section and a "Guest" section, clearly distinguishing between the spaces the member owns and the spaces they have joined as a guest.  Clicking the "Create Space" button opens a pop-up screen for creating a space, and clicking the "Enter Code" button opens a pop-up screen for entering a code to join an existing space. Space owners will see their spacess listed under "My Home," while guests will see records of the spaces they have joined under the "Guest" section.  Clicking the "Log Out" button will transition the screen back to the initial login screen.
     \subsection{Space Registration Pop-Up}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/space/2_SPACE_POPUP1.PNG}}
+            \caption{Space Registration Pop-Up}
+            \label{fig}
+        \end{figure}
         For a space to be ready to use in the application, it needs to be registered firsthand. The space registration pop-up can be accessed via the space list page. By activating the pop-up, space owners can input the name of the space and receive a invitation code for the space. After this process is valid, the new space should be added to the space list page.\\
         On the screen, the user inputs a room name, and a request is sent to the server to store it in the Home database. During this process, a room ID is generated along with a 4-digit random code that will be used for guest access. \\
         A pop-up screen for entering the space title is displayed. While this pop-up is open, the background of the room selection screen becomes opaque, and elements on the room selection screen cannot be interacted until the pop-up is closed. If the user clicks the "Back" button, they return to the space selection screen. If they enter a valid space title and click the "Confirm" button, a space is created, and the screen transitions to the Dashboard Page of the newly created space. If the space title is not entered correctly, a space creation failure alert is displayed, and the pop-up screen remains open.
     \subsection{Space Entrance Pop-Up}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/space/5_SPACE_POPUP2.PNG}}
+            \caption{Space Entrance Pop-Up}
+            \label{fig}
+        \end{figure}
         Space entrance pop-up is the first step for guest users to be able to gain allowance to spaces. This pop-up can be accessed from the space list page.  A space user can gain access to spaces with the code provided by the owner. By having the code, the user also has access to the lighting and appliances pre-registered by the Space owner. Upon inserting a valid space code, it will add a new space to the guest section of the space list page. Now users are allowed on the spaces.\\
         On the screen, when a code is entered, a request is sent to the server. The server searches the Home database for a matching entry. It also retrieves the user's ID from the JWT and fetches Member information. Once a match is found, the server stores the relationship between the Home and the Member in the Guest database, marking the user as a guest in that particular space.\\
         The process for entering a space using a code is similar to the space creation pop-up. After entering a valid code and clicking the "Confirm" button, the user enters the corresponding space, and the initial page, the Dashboard Page, is displayed. If the code is not entered correctly, an alert message is shown, prompting the user to re-enter the code, and the pop-up screen remains open.
     \subsection{Dashboard (Main Page)}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/home/1_HOME_MYHOME.PNG}}
+            \caption{Main Page}
+            \label{fig}
+        \end{figure}
         The Dashboard page is the main page that is first shown to users when entering a space. The main function of the dashboard page is showing an overview of the ongoing party. To help this objective, users can control the music playing from an audio device connected to the application, if there is any. Also there is a shared playlist where party participants can add desired songs to the list. In addition, there are information on the status of the space such as room temperature and air quality. These data can be sourced from the appliances that are connected to the space. Finally at the top there is the name of the space, exit space button, space code and a brief announcement bar. Name and code for the space is based on the data from the database and exiting button leads users back to the space list page. For the announcement bar, any user can post up to 25 characters and all users in the space can see the announcement.\\
         It's a screen composed of tabs, and from the user's perspective, it's not ideal to send requests every time you switch tabs, as it can cause delays. Therefore, as soon as you enter this screen, all the data for the space, including lighting and appliance lists, as well as the game list, is fetched all at once. This data is stored in a context for later use.\\        
         Announcements are displayed as text animations that move from the left side of the screen to the right side, taking 1 minute. There's a button to return to the room selection screen, allowing users to navigate back. On the screen, the album cover of the music currently playing on the AI speaker is displayed, along with music playback options and playlists.
-    \subsection{Lightning \& Appliance Dashboard}
+    \subsection{Lighting \& Appliance Dashboard}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/light/1_LIGHT_EMPTY.PNG}
+            \includegraphics[width=3cm]{Images/screen/light/5_LIGHT_FULL.PNG}
+            \includegraphics[width=3cm]{Images/screen/elec/5_ELEC_FULL.PNG}}
+            \caption{Lighting \& Appliance Dashboard}
+            \label{fig}
+        \end{figure} 
         The appliance tab is the second tab of the application, which has functions that controls the appliances that are connected by the owner. The appliances are categorized into two groups: those with lighting and those without lighting. This page can give an overview of all the lighting and non-lighting appliances of the space. The dashboard consists of 2 identical pages for each type of appliance.\\
         In the Lighting tab, only appliances with the "light" variable set to true in the appliance list data are displayed.  Users can enter their desired ambiance in an input field, and based on the current number of people in the space and the ambiance input, they receive lighting RGB values and effects recommendations from a generative AI. These recommendations are then transmitted to all the lights using Matter for configuration.\\
         In the appliance tab, appliances without lighting features are able to be controlled. The specific functions vary on what type of appliances are added to the tab. It will be specified on later specifications but one example could be a temperature adjustment for an air conditioner.\\
         All appliance buttons are displayed on the screen in two columns and support simple on/off functionality. Tapping each appliance button takes the user to a detailed control screen for each individual appliance. By using the tabs at the top of the screen, users can switch to a screen for controlling appliances without lighting. "Add Lighting" or "Add Appliance" button allows users to add new appliances. Users can enter the desired lighting in an input field and, by pressing the keyboard's completion button, can obtain suitable lighting effects through OpenAI API and the server.
 
     \subsection{Lighting Device \& Appliance Registration Pop-Up}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/light/2_LIGHT_ADD_EMPTY.PNG}
+            \includegraphics[width=3cm]{Images/screen/elec/2_ELEC_ADD_EMPTY.PNG}}
+            \caption{Light \ & Appliance Registration}
+            \label{fig}
+        \end{figure}
         In order to control the appliances from the app, it needs to be registered initially. The registration pop-up will receive information about appliances from the owner ultimately sending the data to the server. Information needed for registration are the serial numbers and name of appliance. In an input bar on the pop-up serial numbers and names are entered. The server automatically categorizes the appliance based on the serial number, checking if it has lighting or determining its type.\\
         Tapping the serial number input field brings up the numerical keyboard, while tapping the name input field displays the Korean keyboard. The "Back" button allows users to return to the lighting screen, and after entering the information correctly, clicking the "Confirm" button results in the creation of a new lighting appliance. If the information is not entered correctly, the lighting appliance is not created, and a "Lighting(Appliance) Creation Failure" alert message is displayed.
 
     \subsection{Lighting Control Page}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/light/8_LIGHT_SETTING.PNG}
+            \includegraphics[width=3cm]{Images/screen/light/9_LIGHT_SETTING_ON.PNG}}
+            \caption{Light Control}
+            \label{fig}
+        \end{figure}
         Using a standardized format with Matter, the frontend sends requests to the appliance in a structured format based on the input it receives.\\
         This screen allows you to control detailed lighting effects for appliances with lighting. At the top of the screen, the icon and name of the selected lighting appliance are displayed. You can control not only the on/off function of the lighting appliance but also check and modify features such as color, brightness, and usage.
 
     \subsection{Appliance Control Page}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/elec/8_ELEC_SETTING.PNG}}
+            \caption{Appliance Control}
+            \label{fig}
+        \end{figure}
         For all appliances, you have the on/off function. If it's an air conditioner, you can control temperature, fan speed, energy-saving mode, and reservation functions. If it's an air purifier, you can control fan speed, view particulate matter (PM) levels, and fine particulate matter (PM2.5) levels. If it's a steamer, you can select courses and view the timer. For robot vacuum cleaners, you can choose cleaning modes, select strong, medium, or weak power, and enable quiet mode. Each appliance has its specific and detailed control features.
     \subsection{Game Dashboard}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/game/GAME_LIST.PNG}}
+            \caption{Game Dashboard}
+            \label{fig}
+        \end{figure}
         The game dashboard is the gateway to playing any of the game provided by the application. The main function is to show the list of games available and by pressing on a component of a list, it will activate the game. The details of the games such as name, the logic of the game are all coming from the server, which means that any kind of game can be added anytime on the back-end.\\
         Upon entering the main tab, the data context received is used to display the list of games on the screen. Clicking on a game in the list creates a game room (Game\_Room DB), with the first person to click becoming the game's host. Subsequently, they are connected to the host's screen. (Only one game room can be created within a space.) Clicking the "Join" button allows a user to join a game room currently in progress in the space. Subsequently, they are connected to the participant's screen. The game list received from the server is displayed in a single column on the screen.
 
     \subsection{Game Host Page}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/game/GAME_STANDBY.PNG}
+            \includegraphics[width=3cm]{Images/screen/game/disney/DISNEY1_HOST.PNG}
+            \includegraphics[width=3cm]{Images/screen/game/geo/GEO1_HOST.PNG}}
+            \caption{Game Host}
+            \label{fig}
+        \end{figure}
         The game host page is a page for the first person to press a game on the game list. By being the first person pressing, it automatically makes them the host of the game. The host’s page consists of all information needed to run the game such as game question, game answer, go to next quiz, end game and a serial list of users based on the speed of pressing the answering button. The host can give user chances to answer according to the list of users and verify if the player has got the answer right. If the answer is correct or nobody got the answer or any situation that regards to move on, the host can press the next game button.\\
         Upon entering the screen, a WebSocket connection is established, and a request with messageType = ENTER is sent. When the "Next Question" button is pressed, the Flask server fetches the question for the selected game, sends it over WebSocket to display it for all participants, and sends a request with messageType = NEXT. When the "Reveal Answer" button is pressed, the answer to the received question is sent over WebSocket to display it for all participants, and a request with messageType = ANSWER is sent. At the bottom of the screen, the nickname of the participant at the top of the first-come, first-served list is displayed. Clicking the "Next" button removes the next person from the list.\\
         The name of the selected game is displayed in the top left corner of the screen, while the "End Game" and "Next Question" buttons are positioned in the top right corner. The game screen may vary depending on the type of game, with images displayed for games that require them and a default image for games that do not. At the bottom of the screen, a list of participants in the game, organized by arrival order, is displayed.
 
     \subsection{Game Participant Page}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/game/disney/DISNEY1_PLAYER.PNG}
+            \includegraphics[width=3cm]{Images/screen/game/disney/DISNEY1_PLAYER_ANSWER.PNG}
+            \includegraphics[width=3cm]{Images/screen/game/geo/GEO1_PLAYER.PNG}}
+            \caption{Game Participant}
+            \label{fig}
+        \end{figure}
         Game participant page is for users that are actually playing the game. The same page is displayed to all users. The main functions provided are to see what the question or quiz is, and a button that gives you the chance to answer these questions. \\
         The screen for participants is similar to the game host page but lacks the "End Game" and "Next Question" buttons. When participants press a button, they are added to the list in the order in which they respond. \\
     	Upon entering the screen, a WebSocket connection is established, and a message with messageType = ENTER is sent. When the game host displays a question, all participants automatically receive a request and see the question. Pressing the "Answer" button adds the participant to the list in the Game\_Room DB in a first-come, first-served manner.
 
     \subsection{AI Guessing Game}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/game/disney/DISNEY2_HOST.PNG}
+            \includegraphics[width=3cm]{Images/screen/game/disney/DISNEY2_PLAYER.PNG}}
+            \caption{AI Guessing Game}
+            \label{fig}
+        \end{figure}
         When the operator of the app runs the toonify AI code, the original and result photo files are stored in the problem and answer folders of AWS S3 cloud storage with ascending numerical filenames. When a user requests the AI guessing game in the app, the backend randomly selects a number, generates URLs for the number.png files in the problem and answer folders, and sends them in JSON format.\\
         When the game host presses the game start button, the first toonified image photo received in JSON format appears simultaneously on the screens of both the game host and the player. In order of arrival, players guess the answer, and when the game host presses the 'Check Answer' button, the correct answer text (character name) appears, and the Toonified image transforms into the original image. When the game host presses the 'Next Question' button, the next toonified image appears, and the game continues in the same manner.\\
         The AI model for the AI guessing game utilizes the StyleGAN2 model to toonify the given photo input. Initially, when a photo is received, the crop code processes it to ensure facial features are appropriately positioned in the photo. The cropped photo is then used to train a model that generates human facial images similar to the input photo using the pre-trained StyleGAN2 generation model. The newly generated model is combined with another pre-trained model, the toonify face model, to create a toonified image. The toonify image can be adjusted by modifying the alpha value to control the degree of toonification. The generated image is finally stored in AWS S3 in the form of a photo.
 
-        
     \subsection{Geography Guessing Game}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/game/geo/GEO2_HOST.PNG}
+            \includegraphics[width=3cm]{Images/screen/game/geo/GEO2_PLAYER.PNG}}
+            \caption{Geography Guessing Game}
+            \label{fig}
+        \end{figure}
         In the app, when a user requests a game, it retrieves values such as latitude and longitude of world-famous landmarks from the OpenAI API. Using the obtained values and the Google Street View API, it sends the URL of the Street View image of the famous landmark in JSON format.\\
         When the game host presses the game start button, the images of the famous landmarks received in JSON format simultaneously appear on the screens of both the game host and the player. By the order of pressing the answer button,, players guess the answer, and when the game host presses the 'Check Answer' button, the name of the landmark appears on the screen. When the game host presses the 'Next Question' button, the next landmark image appears, and the game continues in the same manner.
 
     \subsection{'Gather Up' Game}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/game/gather/GATHERUP.PNG}}
+            \caption{Gather Up}
+            \label{fig}
+        \end{figure}
         Using the NUGU AI Speaker, commands such as 'Start a game with 25 people.' can be given. The speaker sends the number '25' to the connected backend. The backend, using its own algorithm, returns a suitable number for the gathering game. The speaker then responds with something like '6 people gather up!' based on the algorithm's output.
         
     \subsection{App Setting Page}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/settings/SETTING_HOST.PNG}
+            \includegraphics[width=3cm]{Images/screen/settings/SETTING_GUEST.PNG}}
+            \caption{App Setting Page}
+            \label{fig}
+        \end{figure}
         App setting page is a page where any kind of settings regarding the app can be modified, such as logging out. The main difference and function of the application’s setting is that it has buttons regarding the refreshing of the space code.\\
         When you press the "Code Refresh" button, the room's access code is randomly changed, and at the same time, all guests who were invited to the room are removed.\\
         Pressing the "Code Refresh" button causes all user's room access permissions to expire, and they are redirected to the room selection screen.
@@ -967,6 +1049,12 @@ MC, Manager, Lighting, Appliance, Game
     
 \section{Use Cases}
     \subsection{Use Case 1: Loading Page}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/game/geo/GEO2_HOST.PNG}
+            \includegraphics[width=3cm]{Images/screen/game/geo/GEO2_PLAYER.PNG}}
+            \caption{Geography Guessing Game}
+            \label{fig}
+        \end{figure}
     \subsection{Use Case 2: Signing Up}
     \subsection{Use Case 3: Logging In}
     \subsection{Use Case 4: Space Adding \& deleting}
