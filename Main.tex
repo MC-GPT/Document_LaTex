@@ -64,8 +64,7 @@ MC, Manager, Lighting, Appliance, Game
      \hline
      Name & Roles & Task description and etc. \\
      \hline
-     Kang JunGyu & Development Manager, Software developer (Back-end) &  
-     Development Manager is responsible for managing the overall project. He oversees the functions that are required, the UI/UX configuration, the flawless operation of the prototype, and whether the project proceeds as planned. In addition, he constantly monitors the team member’s progress and whether they are communicating effectively.\\
+     Kang JunGyu & Development Manager, Software developer (Back-end) & Development Manager is responsible for managing the overall project. He oversees the functions that are required, the UI/UX configuration, the flawless operation of the prototype, and whether the project proceeds as planned. In addition, he constantly monitors the team member’s progress and whether they are communicating effectively.\\
      \hline
         \end{tabular}
 \end{table}
@@ -476,7 +475,7 @@ MC, Manager, Lighting, Appliance, Game
         \begin{figure}[htbp]
             \centerline{\includegraphics[width=3cm]{Images/screen/light/2_LIGHT_ADD_EMPTY.PNG}
             \includegraphics[width=3cm]{Images/screen/elec/2_ELEC_ADD_EMPTY.PNG}}
-            \caption{Light \ & Appliance Registration}
+            \caption{Light \& Appliance Registration}
             \label{fig}
         \end{figure}
         In order to control the appliances from the app, it needs to be registered initially. The registration pop-up will receive information about appliances from the owner ultimately sending the data to the server. Information needed for registration are the serial numbers and name of appliance. In an input bar on the pop-up serial numbers and names are entered. The server automatically categorizes the appliance based on the serial number, checking if it has lighting or determining its type.\\
@@ -1005,7 +1004,7 @@ MC, Manager, Lighting, Appliance, Game
 
                 \end{tabular}
             \end{table}
-
+            
             \begin{table}[]
                 \caption{Miniforge Virtual Environment with Python 3.10.1}
                 \centering
@@ -1127,12 +1126,15 @@ MC, Manager, Lighting, Appliance, Game
             \label{fig}
         \end{figure}
     \subsection{Use Case 11: Code Refresh}
-        Users that are hosts can refresh codes and expire outdated codes. In the settings page, there is a code refresh button that can be only visible to the owner of the space. This features is made to ensure that participants cannot have access to applliances when the party is over.\\
-
-
+        Users that are hosts can refresh codes and expire outdated codes. In the settings page, there is a code refresh button that can be only visible to the owner of the space. This features is made to ensure that participants cannot have access to appliances when the party is over.\\
+        \newpage
+        
 \section{Discussion}
+    While working on this project, our team had the chance to grow as computer engineers. We didn't have any experience developing applications but after a semester of hard work, we managed to complete MC GPT. We had to conduct a lot of research and studying to get to know our frameworks and softwares.\\
+    For the backend, there was some difficulty of using AWS ec2. Since aws products cannot be seen in code, understanding structure was challenging. Also when using Spring Security, it was a rather complicated concept and took some time understanding it.\\
+    For the frontend, the most difficult part was dealing with websockets. The concept of websockets were not easy to understand and had to go over every console logs. Also, the frontend developer had to be responsible for the design and it was demanding without a designer on the team.\\
+    For the AI, the most difficult part was dealing with the development environment. Our team was all using an ARM based Mac operating system and since it had a different hardware architecture compared to regular GPU, there was not many information available. So there was the process of going through original documentation of PyTorch to get answers. Also, there was a change in the members of the team at the beginning of the project. As a result I had to be responsible for the PM as well, and it was challenging to play two roles for one project.
     
-
 \tableofcontents
 \listoftables
 \listoffigures
