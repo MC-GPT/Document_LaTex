@@ -8,12 +8,17 @@
 \usepackage{textcomp}
 \usepackage{xtab}
 \usepackage{xcolor}
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+    
 \begin{document}
 
 \title{MC GPT \\
-    {\footnotesize \textsuperscript{}- Party Mood Maker \& Play Mini-Games -}
+    {\textsuperscript{}- Party Mood Maker \& Play Mini-Games -}
     }
 
 \author{\IEEEauthorblockN{1\textsuperscript{st} Kang JunGyu}
@@ -51,7 +56,7 @@ In conclusion, our team hopes to provide appliance control along with a game fun
 \begin{IEEEkeywords}
 MC, Manager, Lighting, Appliance, Game
 \end{IEEEkeywords}
-\\
+
 \section {Role Assignment}
 
 \begin{table}[htbp]
@@ -133,7 +138,10 @@ MC, Manager, Lighting, Appliance, Game
             'Ten-Ten' is a multiplayer battle game designed for accessible and enjoyable gaming experiences. The software stands out with its simplicity, allowing users to swiftly create and join game rooms through barcode scanning.\\
             Notable features include real-time multiplayer connectivity, making it ideal for social settings like college events and company orientations. The game offers a diverse range of options, from smartphone-based games to simultaneous multiplayer experiences, catering to varied preferences.\\
             The software's competitive edge lies in its robust ranking and statistics system. Displaying top 100 rankings for each game, it fosters competition and motivates players to challenge themselves. Additionally, the visualization of player activity provides a quick overview of their engagement.\\
-            It offers a user-friendly and socially connected multiplayer gaming platform with diverse game options and a compelling ranking system. Its simplicity and versatility make it suitable for various social gatherings and events.
+            It offers a user-friendly and socially connected multiplayer gaming platform with diverse game options and a compelling ranking system. Its simplicity and versatility make it suitable for various social gatherings and events.\\
+
+        \subsubsection{LG ThinQ}
+            LG ThinQ is a comprehensive brand and platform developed by LG Electronics, integrating cutting-edge technologies to enhance the functionality and connectivity of various home appliances and electronic devices. With a focus on artificial intelligence (AI) and smart home solutions, LG ThinQ enables seamless communication and coordination among LG products, with an interconnected ecosystem. Users can control and monitor their devices remotely, leverage AI-driven features for optimized performance, and enjoy a more intuitive and personalized user experience. Whether it's smart TVs, refrigerators, air conditioners, or other appliances, LG ThinQ represents innovation, convenience, and creating a more intelligent and interconnected home environment.
     \section{Requirement Analysis}
     
     \subsection{Logging In}
@@ -173,7 +181,10 @@ MC, Manager, Lighting, Appliance, Game
     
 \section{Development Environment}
     \subsection{Choice of Software}
-    
+        \subsubsection{Estimated Cost}
+            \begin{itemize}
+                \item AWS EC2 \& S3: About 3 USD per month
+            \end{itemize}
     \begin{table}[htbp]
         \caption{Development Language and Environment}
         \centering
@@ -187,21 +198,18 @@ MC, Manager, Lighting, Appliance, Game
              \hline
              React
              
-             Native & React Native is an open-source UI software framework created by Meta Platform, Inc. It is used to develop applications for Android, Android TV, iOS, macOS, tvOS, Web, Windows and UWP by enabling developers to use the React\\
+             Native & React Native is an open-source UI software framework created by Meta Platform, Inc. It is used to develop applications for Android, Android TV, iOS, macOS, tvOS, Web, Windows and UWP by enabling developers to use the React framework along with native platform capabilities. It is also being used to develop virtual reality applications at Oculus. One of the biggest feature of React Native is being able to create native UI for Android and iOS using JavaScript, and create high-quality UI faster than using HTML.
+             React Native communicates with Native Thread over native bridges, optimizing performance unlike web apps. Using a method of communicating with the native without using this web is called a Hybrid App, and there are Xamarin, Native Script, and flutter.
+             In this project, we chose React Native for developing mobile applications in the frontend development environment because it offers a wealth of resources, and it supports native development environments for both Android and iOS, making it a superior choice over other mobile app programming frameworks.\\
              \hline
-               \end{tabular}
+             Python & Python is a high-level, versatile, and dynamically-typed programming language known for its simplicity and readability. It has a vast standard library and a thriving ecosystem of third-party packages and frameworks, which makes it suitable for a wide range of applications, including web development, data analysis, machine learning. Python's syntax is clear and expressive, making it an ideal language for both beginners and experienced developers. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming. Python has gained significant popularity in recent years for data science and machine learning thanks to libraries like NumPy, pandas, scikit-learn, and TensorFlow. It is also used in web development with frameworks like Flask. Python's simplicity, versatility, and large community make it one of the most popular programming languages in the world.\\
+             \hline
+        \end{tabular}
     \end{table}
     
 \begin{table}[htbp]
     \centering
-        \begin{tabular}{| p{1.2cm}|p{6.8cm} |} 
-             \hline
-             &
-             framework along with native platform capabilities. It is also being used to develop virtual reality applications at Oculus. One of the biggest feature of React Native is being able to create native UI for Android and iOS using JavaScript, and create high-quality UI faster than using HTML.
-             React Native communicates with Native Thread over native bridges, optimizing performance unlike web apps. Using a method of communicating with the native without using this web is called a Hybrid App, and there are Xamarin, Native Script, and flutter.
-             In this project, we chose React Native for developing mobile applications in the frontend development environment because it offers a wealth of resources, and it supports native development environments for both Android and iOS, making it a superior choice over other mobile app programming frameworks. \\
-             \hline
-             Python & Python is a high-level, versatile, and dynamically-typed programming language known for its simplicity and readability. It has a vast standard library and a thriving ecosystem of third-party packages and frameworks, which makes it suitable for a wide range of applications, including web development, data analysis, machine learning. Python's syntax is clear and expressive, making it an ideal language for both beginners and experienced developers. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming. Python has gained significant popularity in recent years for data science and machine learning thanks to libraries like NumPy, pandas, scikit-learn, and TensorFlow. It is also used in web development with frameworks like Flask. Python's simplicity, versatility, and large community make it one of the most popular programming languages in the world.\\
+        \begin{tabular}{| p{1.2cm}|p{6.8cm} |}
              \hline
              PostgreSQL &  PostgreSQL, often referred to as "Postgres," is a powerful open-source relational database management system (RDBMS). It's known for its advanced features and extensibility, making it a popular choice for both small and large-scale applications. PostgreSQL offers robust support for structured data, ACID compliance, and features like indexing, full-text search, and geospatial capabilities. It is highly extensible and allows developers to create custom functions and data types. With a strong focus on data integrity and security, PostgreSQL is widely used in a variety of industries, including web applications, data warehousing, and geographic information systems (GIS). \\ [1ex]
              \hline
@@ -547,7 +555,8 @@ MC, Manager, Lighting, Appliance, Game
 
     \subsection{'Gather Up' Game}
         \begin{figure}[htbp]
-            \centerline{\includegraphics[width=3cm]{Images/screen/game/gather/GATHERUP.PNG}}
+            \centerline{\includegraphics[width=3cm]{Images/screen/game/gather/GATHERUP.PNG}
+            \includegraphics[width=3cm]{Images/screen/game/gather/NUGU_Playbuilder.png}}
             \caption{Gather Up}
             \label{fig}
         \end{figure}
@@ -607,14 +616,15 @@ MC, Manager, Lighting, Appliance, Game
             
             \begin{table}[]
                 \centering
-                \begin{tabular}{p{2.4cm}|p{2.8cm}|p{2.7cm}}
+                \caption{Frontend Directory}
+                \begin{tabular}{p{2cm}|p{2.6cm}|p{3.2cm}}
                     \hline
                     \textit{\textbf{Directory}} & \textit{\textbf{File Name}} & \textit{\textbf{Modules Used}}\\ 
                     \hline 
 
-                    \begin{tabular}[c]{@{}l@{}}
+                    \begin{tabular}[t]{@{}l@{}}
                     MC-GPT/\end{tabular} & 
-                    \begin{tabular}[c]{@{}l@{}}              assets\\src\\.eslintrc.json\\.prettierrc\\App.js\\app.json\\babel.config.js\\package-lock.json\\package.json \end{tabular} \\
+                    \begin{tabular}[c]{@{}l@{}}             assets\\src\\.eslintrc.json\\.prettierrc\\App.js\\app.json\\babel.config.js\\package-lock.json\\package.json \end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
@@ -648,19 +658,24 @@ MC, Manager, Lighting, Appliance, Game
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
-                    MC-GPT/src/\\navigations\\\end{tabular} & 
-                    \begin{tabular}[c]{@{}l@{}}                    Appliances.js\\AuthStack.js\\ContentTab.js\\index.js\\MainStack.js\\\end{tabular} &
-                    \begin{tabular}[c]{@{}l@{}}                    
-                    react-native\\expo/vector-icons\\react-navigation/material-\\top-tabs\\react-native-safe-area-\\context\\react-navigation/native\\react-navigation/native-\\stack\\react-navigation/bottom-\\tabs \end{tabular} \\
-                    \hline
-
-                    \begin{tabular}[c]{@{}l@{}}
                     MC-GPT/src/\\screens\\\end{tabular} & 
                     \begin{tabular}[c]{@{}l@{}}                    ElectroInfoScreen.js\\ElectronicScreen.js\\GameListScreen.js\\GameManageScreen.js\\GamePlayScreen.js\\HomeScreen.js\\LightningScreen.js\\LoadingScreen.js\\MoodLightScreen.js\\RoomScreen.js\\SettingsScreen.js\\SignInScreen.js\\SignUpScreen.js\\\end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    
                     react\\react-native\\prop-types\\expo/vector-icons\\react-navigation/native\\react-native-safe-area-\\context\\expo-blur\\axios\\ \end{tabular} \\
                     \hline                    
         
+                \end{tabular}
+            \end{table}
+            \begin{table}[]
+                \centering
+                \begin{tabular}{p{2cm}|p{2.6cm}|p{3.2cm}}
+                \hline
+                    \begin{tabular}[c]{@{}l@{}}
+                    MC-GPT/src/\\navigations\\\end{tabular} & 
+                    \begin{tabular}[c]{@{}l@{}}                    Appliances.js\\AuthStack.js\\ContentTab.js\\index.js\\MainStack.js\\\end{tabular} &
+                    \begin{tabular}[c]{@{}l@{}}                    
+                    react-native\\expo/vector-icons\\react-navigation/material-\\top-tabs\\react-native-safe-area-context\\react-navigation/native\\react-navigation/native-stack\\react-navigation/bottom-tabs \end{tabular} \\
+                \hline
                 \end{tabular}
             \end{table}
         \subsubsection{Component}
@@ -732,6 +747,7 @@ MC, Manager, Lighting, Appliance, Game
 
             \begin{table}[]
                 \centering
+                \caption{Backend Directory}
                 \begin{tabular}{p{2.4cm}|p{2.8cm}|p{2.7cm}}
                     \hline
                     \textit{\textbf{Directory}} & \textit{\textbf{File Name}} & \textit{\textbf{Modules Used}}\\ 
@@ -948,6 +964,7 @@ MC, Manager, Lighting, Appliance, Game
 
             \begin{table}[]
                 \centering
+                \caption{AI Directory}
                 \begin{tabular}{p{2.4cm}|p{2.8cm}|p{2.7cm}}
                     \hline
                     \textit{\textbf{Directory}} & \textit{\textbf{File Name}} & \textit{\textbf{Modules Used}}\\ 
@@ -961,13 +978,8 @@ MC, Manager, Lighting, Appliance, Game
 
                     \begin{tabular}[c]{@{}l@{}}
                     MC-GPT/\\GAN\_Model/\\\end{tabular} & 
-                    \begin{tabular}[c]{@{}l@{}}                    \_\_pycache\_\_\\crop.py\\face.pt8udytfs5tmp\\imgs\\inversion\_codes\\inversion\_stats.npz\\main.py\\model.py\\Models\\Notebook\\op\\Pre-trained Data\\projector.py\\readme.md\\toonify.py\\util.py\\ \end{tabular} &
+                    \begin{tabular}[c]{@{}l@{}}crop.py\\face.pt8udytfs5tmp\\imgs\\inversion\_codes\\inversion\_stats.npz\\main.py\\model.py\\Models\\Notebook\\op\\Pre-trained Data\\projector.py\\readme.md\\toonify.py\\util.py\\ \end{tabular} &
                     \begin{tabular}[c]{@{}l@{}}                    math\\ntpath\\tensorflow\\retinaface\\numpy\\PIL\\cv2\\torchvision\\boto3\\random\\functools\\operator\\torch\\kornia\\os\\pathlib\\lpips\\tqdm\\matplotlib\\scipy\end{tabular} \\
-                    \hline
-
-                    \begin{tabular}[c]{@{}l@{}}
-                    MC-GPT/\\GAN\_Model/\\\_\_pycache\_\_/\\\end{tabular} &
-                    \begin{tabular}[c]{@{}l@{}}                    util.cpython-310.pyc\\toonify.cpython-310.pyc\\projector.cpython-310.pyc\\model.cpython-310.pyc\\crop.cpython-310.pyc\\\end{tabular} \\
                     \hline
 
                     \begin{tabular}[c]{@{}l@{}}
@@ -991,18 +1003,6 @@ MC, Manager, Lighting, Appliance, Game
                     \begin{tabular}[c]{@{}l@{}}                    tensorflow\\retinaface\\matplotlib\\numpy\\PIL\\ntpath\\cv2\\math\\os\\torch\\torchvision\\tqdm\\lpips\\\end{tabular} \\
                     \hline
 
-                    \begin{tabular}[c]{@{}l@{}}
-                    MC-GPT/\\GAN\_Model/op/\\\end{tabular} & 
-                    \begin{tabular}[c]{@{}l@{}}                    \_\_init\_\_.py\\\_\_pycache\_\_\\fused\_act.py\\upfirdn2d.py \end{tabular} &
-                    \begin{tabular}[c]{@{}l@{}}
-                    os\\torch\end{tabular} \\
-                    \hline
-
-                    \begin{tabular}[c]{@{}l@{}}
-                    MC-GPT/\\GAN\_Model/op/\\\_\_pycache\_\_/\\\end{tabular} & 
-                    \begin{tabular}[c]{@{}l@{}}                    upfirdn2d.cpython-310.pyc\\fused\_act.cpython-310.pyc\\\_\_init\_\_.cpython-310.pyc\end{tabular} \\
-                    \hline
-                    
                 \end{tabular}
             \end{table}
 
@@ -1013,7 +1013,7 @@ MC, Manager, Lighting, Appliance, Game
                     \hline
                     Package Used\\
                     \hline
-                    \_tflow\_select, , abseil-cpp, absl-py, aiofiles, aiohttp, aiosignal, aiosqlite, anyio, aom, appnope, argon2-cffi, argon2-cffi-bindings, asttokens, astunparse, async-timeout, attrs, babel, backcall, beautifulsoup4, blas, blas-devel, bleach, blinker, blosc, brotli, brotli-bin, brotlipy, brunsli, bzip2, c-ares, ca-certificates, cachetools, cairo, certifi, cffi, cfitsio, charls, charset-normalizer, click, cloudpickle, comm, contourpy, cryptography, cycler, cytoolz, dask-core, dav1d, debugpy, decorator, defusedxml, eigen, entrypoints, exceptiongroup, executing, expat, ffmpeg, filelock, flatbuffers, fontconfig, fonttools, freetype, frozenlist, fsspec, gast, gdown, gettext, giflib, glib, gmp, gmpy2, gnutls, google-auth, google-auth-oauthlib, google-pasta, graphite2, grpc-cpp, grpcio, gst-plugins-base, gstreamer, h5py, harfbuzz, hdf5, icu, idna, imagecodecs, imageio, importlib-metadata, ipykernel, ipython, ipython\_genutils, ipywidgets, jedi, jinja2, jpeg, json5, jsonschema, jupyter, jupyter\_client, jupyter\_console, jupyter\_core, jupyter\_events, jupyter\_server, jupyter\_server\_fileid, jupyter\_server\_ydoc, jupyter\_ydoc, jupyterlab, jupyterlab\_pygments, jupyterlab\_server, jupyterlab\_widgets, jxrlib, keras, keras-preprocessing, kiwisolver, kornia, krb5, lame, lazy\_loader, lcms2, lerc, libaec, libavif, libblas, libbrotlicommon, libbrotlidec, libbrotlienc, libcblas, libclang, libclang13, libcurl, libcxx, libdeflate, libedit, libev, libffi, libgfortran, libgfortran5, libiconv, libidn2, liblapack, liblapacke, libllvm14, libnghttp2, libopenblas, libopus, libpng, libpq, libprotobuf, libsodium, libssh2, libtasn1, libtiff, libunistring, libuv, libvpx, libwebp, libwebp-base, libxml2, libxslt, libzopfli, llvm-openmp, locket, lpips, lxml, lz4-c, markdown, markupsafe, matplotlib-base, matplotlib-inline, mediapipe, mistune, mpc, mpfr, mpmath, multidict, munkres, nbclassic, nbclient, nbconvert, nbformat, ncurses, nest-asyncio, nettle, networkx, ninja, ninja-base, notebook, notebook-shim, nspr, nss, numpy, numpy-base, oauthlib, openblas, opencv-contrib-python, opencv-python, openh264, openjpeg, openssl, opt\_einsum, packaging, pandocfilters, parso, partd, pcre, pexpect, pickleshare, pillow, pip, pixman, platformdirs, ply, prometheus\_client, prompt-toolkit, prompt\_toolkit, protobuf, psutil, ptyprocess, pure\_eval, pyasn1, pyasn1-modules, pycparser, pygments, pyjwt, pyopenssl, pyparsing, pyqt, pyqt5-sip, pyrsistent, pysocks, python, python-dateutil, python-fastjsonschema, python-flatbuffers, python-json-logger, pytorch, pytz, pywavelets, pyyaml, pyzmq, qt-main, qt-webengine, qtconsole, qtpy, qtwebkit, re2, readline, requests, requests-oauthlib, retina-face, rfc3339-validator, rfc3986-validator, rsa, scikit-image, scipy, send2trash, setuptools, sip, six, sleef, snappy, sniffio, sounddevice, soupsieve, sqlite, stack\_data, sympy, tensorboard, tensorboard-data-server, tensorboard-plugin-wit, tensorflow, tensorflow-base, tensorflow-estimator, termcolor, terminado, tifffile, tinycss2, tk, toml, tomli, toolz, torchvision, tornado, tqdm, traitlets, typing-extensions, typing\_extensions, tzdata, urllib3, wcwidth, webencodings, websocket-client, werkzeug, wheel, widgetsnbextension, wrapt, x264, xz, y-py, yaml, yarl, ypy-websocket, zeromq, zfp, zipp, zlib, zstd\\
+                    tensorflow, pytorch, torchvision, keras,  scikit-image, pandas, numpy, scipy, matplotlib, seaborn, jupyter, nbclassic, nbclient, nbconvert, nbformat, notebook, ipykernel, ipython, ipywidgets , requests, opencv-contrib-python, opencv-python, imageio, imagecodecs, mediapipe, pillow, tqdm\\
                     \hline
                 \end{tabular}
             \end{table}
@@ -1049,9 +1049,9 @@ MC, Manager, Lighting, Appliance, Game
     
 \section{Use Cases}
     \subsection{Use Case 1: Signing Up}
-        The signing up or registration page is the first page a user must encounter. It requires information such as name, nickname, ID, password and password check. 
+        The signing up or registration page is the first page a user must encounter. It requires information such as name, nickname, ID, password and password check. When a user inserts these datas, it is stored in the database and can be used to login.\\
     \subsection{Use Case 2: Logging In}
-        
+        A user can login by using the data they inserted when registering account. When a user inserts data that is not valid according to the database, a pop-up appears saying login fail. when the data is valid, the user can go ahead to the space page.\\
     \subsection{Use Case 3: Space Adding \& deleting}
         \begin{figure}[htbp]
             \centerline{\includegraphics[width=3cm]{Images/screen/space/3_SPACE_POPUP1_FILLED.PNG}
@@ -1059,7 +1059,7 @@ MC, Manager, Lighting, Appliance, Game
             \caption{Geography Guessing Game}
             \label{fig}
         \end{figure}
-        Users can add and delete spaces fron
+        Users can add and delete spaces from the space page. To add a space, users can insert the name of the space and press enter. This will show a space addition pop-up and the space will be added to the space page. When a user wants to delete the space, the user can press the desired space long and it will enable a pop-up asking for confirmation. When deleted it will no longer show on the space page\\
     \subsection{Use Case 4: Space Entering}
         \begin{figure}[htbp]
             \centerline{\includegraphics[width=3cm]{Images/screen/space/6_SPACE_POPUP2_FILLED.PNG}
@@ -1067,24 +1067,74 @@ MC, Manager, Lighting, Appliance, Game
             \caption{Geography Guessing Game}
             \label{fig}
         \end{figure}
+        Users can enter a space by entering a unique code for spaces. There is a plus button which a user can press and enable a pop-up to enter the space code. When the user enters the space code and press enter, it will add the space if there is a match with the database. Then the space is added to the space page.\\
     \subsection{Use Case 5: Main Page - Music \& Exit}
-        
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/home/1_HOME_MYHOME.PNG}
+            \includegraphics[width=3cm]{Images/screen/home/3_HOME_FREINDHOME.PNG}}
+            \caption{Main Page}
+            \label{fig}
+        \end{figure}
+        This is the main page a user encounters, it has a announcement and music function. A desired user can enter anything in the announcement and a shared playlist can be played from a music device that is linked with the space. Anyone has control to these features. Also at the top, there is a name for the space and a button that can be used to leave the space. \\
     \subsection{Use Case 6: Appliance Addition \& Delete}
-        
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/light/3_LIGHT_ADD_FILLED.PNG}
+            \includegraphics[width=3cm]{Images/screen/light/4_LIGHT_ADD_ALERT.PNG}}
+            \caption{Appliance Addition}
+            \label{fig}
+        \end{figure}
+        Users that are hosts can add lighting devices and appliances. To add a appliance, users can press the plus button at the bottom and enter the name and serial number of the device. When added it will be shown in the lighting or appliance page. To delete the appliance, users can press the desired appliance for some time and a pop-up will appear. When deleted, it will no longer show on the page.
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/light/6_LIGHT_DELETE.PNG}
+            \includegraphics[width=3cm]{Images/screen/light/7_LIGHT_DELETE_COMPLETE.PNG}}
+            \caption{Appliance Deletion}
+            \label{fig}
+        \end{figure}
     \subsection{Use Case 7: Appliance Control}
-        
+        Users can control appliances by touching on it and entering. There are be attributes that can be changed such as color and brightness for lighting devices, and appliances have unique attributes that can be changed. For example, the wind speed and target temperature can be adjusted for a air conditioner.\\
+        Another feature is a lock function that can be only used by the space owner. When locked, other users can not control that appliance.\\
     \subsection{Use Case 8: GPT Lighting Control}
-        
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/light/10_LIGHT_BLUE_HIGH.PNG}
+            \includegraphics[width=3cm]{Images/screen/light/12_LIGHT_GREEN.PNG}
+             \includegraphics[width=3cm]{Images/screen/light/13_LIGHT_WARM.PNG}}
+            \caption{GPT Lighting control}
+            \label{fig}
+        \end{figure}
+        Users can select GPT suggested colors and change the lighting of devices. OpenAI API is used to request for color codes that are appropriate for parties. When a user presses any of the hashtaged theme for the color, the color will be set accordingly. This will result in the change of colors in the lighting devices. Also the icons of the devices are change.
     \subsection{Use Case 9: Game Selection}
-        
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/game/GAME_LIST.PNG}
+            \includegraphics[width=3cm]{Images/screen/game/GAME_STANDBY.PNG}}
+            \caption{Game Selection}
+            \label{fig}
+        \end{figure}
+        Users can select games from the game tab. There are a list of games that are provided. When a game is pressed it automatically makes that particular user as the host. Other users who are participating in the games can press the purple button below to enter. Before the game can start, the host has to press the start game button to make sure everyone has entered before starting.\\
     \subsection{Use Case 10: Game Play}
-        
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/game/disney/DISNEY4_HOST.PNG}
+            \includegraphics[width=3cm]{Images/screen/game/disney/DISNEY4_PLAYER.PNG}
+             \includegraphics[width=3cm]{Images/screen/game/disney/DISNEY4_PLAYER_ANSWER.PNG}}
+            \caption{AI Image Game}
+            \label{fig}
+        \end{figure}
+        Users can play games with their mobile devices. Provided games are disney game, geo game and gather up. The host can see the question and the next person to answer the game. The player list is in serial order of how fast a user pressed the button. There is also a button to proceed to the next question at the top. For the user, there is a button that can be used to get the opportunity of answering the question.\\
+        \begin{figure}[htbp]
+            \centerline{\includegraphics[width=3cm]{Images/screen/game/geo/GEO3_HOST.PNG}
+            \includegraphics[width=3cm]{Images/screen/game/geo/GEO3_ANSWER.PNG}
+             \includegraphics[width=3cm]{Images/screen/game/geo/GEO3_PLAYER.PNG}}
+            \caption{AI Image Game}
+            \label{fig}
+        \end{figure}
     \subsection{Use Case 11: Code Refresh}
-        
-\section{Conclusion \& Discussion}
+        Users that are hosts can refresh codes and expire outdated codes. In the settings page, there is a code refresh button that can be only visible to the owner of the space. This features is made to ensure that participants cannot have access to applliances when the party is over.\\
 
-\section*{Acknowledgment}
+
+\section{Discussion}
+    
 
 \tableofcontents
+\listoftables
+\listoffigures
 
 \end{document}
