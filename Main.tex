@@ -102,7 +102,7 @@ MC, Manager, Lighting, Appliance, Game
 \section{Introduction}
 
     \subsection{Motivation and Term Definition}
-        n house parties and Korean ‘MT’s, where many college students and young adults go to have fun these days, the ‘Host’ can  have a hard time controlling the party and provide various recreational content. If the Host was someone other than a human or aided by an app or software, it can ultimately lead to a better party experience. Also everyone could join the party instead of being divided into host and participants, because the host can choose from various functions to lessen the burden of party preparation.\\
+        In house parties and Korean ‘MT’s, where many college students and young adults go to have fun these days, the ‘Host’ can  have a hard time controlling the party and provide various recreational content. If the Host was someone other than a human or aided by an app or software, it can ultimately lead to a better party experience. Also everyone could join the party instead of being divided into host and participants, because the host can choose from various functions to lessen the burden of party preparation.\\
     	For a fun MT and house party, not only party games but also setting the party mood is one of the most important things. To do so, our team figured it could be done by providing lighting \& appliance control, mini-games and space control.
         \begin{itemize}
             \item MT : Membership Training in Korea - A party lasts roughly two days and is considered a free-form training session, where students spend time socializing with peers in the same majors or student clubs, often at a remote location.
@@ -1047,6 +1047,27 @@ MC, Manager, Lighting, Appliance, Game
             \end{itemize}
     
 \section{Use Cases}
+
+    Below are the use case diagram of MC GPT. The user diagram is for all users, host diagram for host only functions and participant diagram for participant only functions.\\
+    
+    \begin{figure}[htbp]
+        \centerline{\includegraphics[width=6.5cm]{Images/use/User.png}}
+        \caption{User Use Case}
+        \label{fig}
+    \end{figure}
+    
+    \begin{figure}[htbp]
+        \centerline{\includegraphics[width=6cm]{Images/use/Host.png}}
+        \caption{Host Use Case}
+        \label{fig}
+    \end{figure}
+
+    \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{Images/use/Participant.png}}
+        \caption{Participant Use Case}
+        \label{fig}
+    \end{figure}
+    
     \subsection{Use Case 1: Signing Up}
         The signing up or registration page is the first page a user must encounter. It requires information such as name, nickname, ID, password and password check. When a user inserts these datas, it is stored in the database and can be used to login.\\
     \subsection{Use Case 2: Logging In}
@@ -1055,15 +1076,17 @@ MC, Manager, Lighting, Appliance, Game
         \begin{figure}[htbp]
             \centerline{\includegraphics[width=3cm]{Images/screen/space/3_SPACE_POPUP1_FILLED.PNG}
             \includegraphics[width=3cm]{Images/screen/space/4_SPACE_CREATE_ALERT.PNG}}
-            \caption{Geography Guessing Game}
+            \caption{Space Addition}
             \label{fig}
         \end{figure}
         Users can add and delete spaces from the space page. To add a space, users can insert the name of the space and press enter. This will show a space addition pop-up and the space will be added to the space page. When a user wants to delete the space, the user can press the desired space long and it will enable a pop-up asking for confirmation. When deleted it will no longer show on the space page\\
+        \newpage
+        
     \subsection{Use Case 4: Space Entering}
         \begin{figure}[htbp]
             \centerline{\includegraphics[width=3cm]{Images/screen/space/6_SPACE_POPUP2_FILLED.PNG}
             \includegraphics[width=3cm]{Images/screen/space/7_SPACE_ADD_ALERT.PNG}}
-            \caption{Geography Guessing Game}
+            \caption{Space entrance}
             \label{fig}
         \end{figure}
         Users can enter a space by entering a unique code for spaces. There is a plus button which a user can press and enable a pop-up to enter the space code. When the user enters the space code and press enter, it will add the space if there is a match with the database. Then the space is added to the space page.\\
@@ -1074,7 +1097,9 @@ MC, Manager, Lighting, Appliance, Game
             \caption{Main Page}
             \label{fig}
         \end{figure}
-        This is the main page a user encounters, it has a announcement and music function. A desired user can enter anything in the announcement and a shared playlist can be played from a music device that is linked with the space. Anyone has control to these features. Also at the top, there is a name for the space and a button that can be used to leave the space. \\
+        This is the main page a user encounters, it has a announcement and music function. A desired user can enter anything in the announcement and a shared playlist can be played from a music device that is linked with the space. Anyone has control to these features. Also at the top, there is a name for the space and a button that can be used to leave the space.
+        \newpage
+        
     \subsection{Use Case 6: Appliance Addition \& Delete}
         \begin{figure}[htbp]
             \centerline{\includegraphics[width=3cm]{Images/screen/light/3_LIGHT_ADD_FILLED.PNG}
@@ -1089,6 +1114,8 @@ MC, Manager, Lighting, Appliance, Game
             \caption{Appliance Deletion}
             \label{fig}
         \end{figure}
+    \newpage
+        
     \subsection{Use Case 7: Appliance Control}
         Users can control appliances by touching on it and entering. There are be attributes that can be changed such as color and brightness for lighting devices, and appliances have unique attributes that can be changed. For example, the wind speed and target temperature can be adjusted for a air conditioner.\\
         Another feature is a lock function that can be only used by the space owner. When locked, other users can not control that appliance.\\
@@ -1101,6 +1128,7 @@ MC, Manager, Lighting, Appliance, Game
             \label{fig}
         \end{figure}
         Users can select GPT suggested colors and change the lighting of devices. OpenAI API is used to request for color codes that are appropriate for parties. When a user presses any of the hashtaged theme for the color, the color will be set accordingly. This will result in the change of colors in the lighting devices. Also the icons of the devices are change.
+        
     \subsection{Use Case 9: Game Selection}
         \begin{figure}[htbp]
             \centerline{\includegraphics[width=3cm]{Images/screen/game/GAME_LIST.PNG}
@@ -1109,6 +1137,7 @@ MC, Manager, Lighting, Appliance, Game
             \label{fig}
         \end{figure}
         Users can select games from the game tab. There are a list of games that are provided. When a game is pressed it automatically makes that particular user as the host. Other users who are participating in the games can press the purple button below to enter. Before the game can start, the host has to press the start game button to make sure everyone has entered before starting.\\
+
     \subsection{Use Case 10: Game Play}
         \begin{figure}[htbp]
             \centerline{\includegraphics[width=3cm]{Images/screen/game/disney/DISNEY4_HOST.PNG}
@@ -1122,19 +1151,19 @@ MC, Manager, Lighting, Appliance, Game
             \centerline{\includegraphics[width=3cm]{Images/screen/game/geo/GEO3_HOST.PNG}
             \includegraphics[width=3cm]{Images/screen/game/geo/GEO3_ANSWER.PNG}
              \includegraphics[width=3cm]{Images/screen/game/geo/GEO3_PLAYER.PNG}}
-            \caption{AI Image Game}
+            \caption{Geography Game}
             \label{fig}
         \end{figure}
     \subsection{Use Case 11: Code Refresh}
         Users that are hosts can refresh codes and expire outdated codes. In the settings page, there is a code refresh button that can be only visible to the owner of the space. This features is made to ensure that participants cannot have access to appliances when the party is over.\\
-        \newpage
         
 \section{Discussion}
     While working on this project, our team had the chance to grow as computer engineers. We didn't have any experience developing applications but after a semester of hard work, we managed to complete MC GPT. We had to conduct a lot of research and studying to get to know our frameworks and softwares.\\
     For the backend, there was some difficulty of using AWS ec2. Since aws products cannot be seen in code, understanding structure was challenging. Also when using Spring Security, it was a rather complicated concept and took some time understanding it.\\
     For the frontend, the most difficult part was dealing with websockets. The concept of websockets were not easy to understand and had to go over every console logs. Also, the frontend developer had to be responsible for the design and it was demanding without a designer on the team.\\
     For the AI, the most difficult part was dealing with the development environment. Our team was all using an ARM based Mac operating system and since it had a different hardware architecture compared to regular GPU, there was not many information available. So there was the process of going through original documentation of PyTorch to get answers. Also, there was a change in the members of the team at the beginning of the project. As a result I had to be responsible for the PM as well, and it was challenging to play two roles for one project.
-    
+\newpage
+
 \tableofcontents
 \listoftables
 \listoffigures
